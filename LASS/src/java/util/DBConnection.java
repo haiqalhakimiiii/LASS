@@ -10,5 +10,5 @@ package util;
  * @author hakim
  */
 public class DBConnection {
-    
+    String abc;
 }
