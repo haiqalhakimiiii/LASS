@@ -9,7 +9,7 @@
 <%@page import="java.sql.Connection"%>
 <%
         Connection conn = null;
-        String url = "jdbc:mysql://localhost:3306/lass?zeroDateTimeBehavior=convertToNull;create=true";
+        String url = "jdbc:mysql://localhost:3306/lass";
         String username = "root";
         String password = "";
         
