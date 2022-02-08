@@ -14,7 +14,7 @@
         String password = "";
         
         try{
-            Class.forName("org.apache.mysql.jdbc.ClientDriver");   
+            Class.forName("com.mysql.jdbc.Driver");   
         }
         catch(ClassNotFoundException e){
             e.printStackTrace();

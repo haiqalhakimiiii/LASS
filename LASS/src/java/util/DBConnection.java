@@ -16,7 +16,7 @@ public class DBConnection {
         String username = "root";
         String password = "";
         try{
-            Class.forName("org.apache.derby.jdbc.ClientDriver");   
+            Class.forName("com.mysql.jdbc.Driver");   
         }
         catch(ClassNotFoundException e){
             e.printStackTrace();
