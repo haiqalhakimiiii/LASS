@@ -12,7 +12,7 @@ import java.sql.*;
 public class DBConnection {
     public static Connection createConnection(){
         Connection conn = null;
-        String url = "jdbc:mysql://localhost:3306/lass?zeroDateTimeBehavior=convertToNull;create=true";
+        String url = "jdbc:mysql://localhost:3306/lass";
         String username = "root";
         String password = "";
         try{
