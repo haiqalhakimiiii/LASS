@@ -10,5 +10,5 @@ package bean;
  * @author hakim
  */
 public class dummy {
-    
+    String a;
 }
