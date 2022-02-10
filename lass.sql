@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2022 at 02:54 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.0
+-- Generation Time: Feb 10, 2022 at 04:06 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -50,7 +50,7 @@ CREATE TABLE `device` (
   `model` varchar(50) NOT NULL,
   `typeName` varchar(10) NOT NULL,
   `color` varchar(20) NOT NULL,
-  `custPhone` varchar(15) NOT NULL
+  `custID` int(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -78,11 +78,11 @@ CREATE TABLE `repair_job` (
   `trackingNum` varchar(30) NOT NULL,
   `problem` varchar(150) NOT NULL,
   `statusDate` date NOT NULL,
-  `custPhone` varchar(15) NOT NULL,
   `staffID` int(11) NOT NULL,
   `statusID` int(11) NOT NULL,
   `serialNum` varchar(30) NOT NULL,
-  `paymentID` int(30) NOT NULL
+  `paymentID` int(30) NOT NULL,
+  `custID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -124,7 +124,8 @@ ALTER TABLE `customer`
 -- Indexes for table `device`
 --
 ALTER TABLE `device`
-  ADD PRIMARY KEY (`serialNum`);
+  ADD PRIMARY KEY (`serialNum`),
+  ADD KEY `custID_fk` (`custID`);
 
 --
 -- Indexes for table `payment`
@@ -136,7 +137,12 @@ ALTER TABLE `payment`
 -- Indexes for table `repair_job`
 --
 ALTER TABLE `repair_job`
-  ADD PRIMARY KEY (`jobID`);
+  ADD PRIMARY KEY (`jobID`),
+  ADD KEY `paymentID_fk` (`paymentID`),
+  ADD KEY `serialNum_fk` (`serialNum`),
+  ADD KEY `staffID_fk` (`staffID`),
+  ADD KEY `statusID_fk` (`statusID`),
+  ADD KEY `fk_custID` (`custID`);
 
 --
 -- Indexes for table `staff`
@@ -177,6 +183,26 @@ ALTER TABLE `repair_job`
 --
 ALTER TABLE `staff`
   MODIFY `staffID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `device`
+--
+ALTER TABLE `device`
+  ADD CONSTRAINT `custID_fk` FOREIGN KEY (`custID`) REFERENCES `customer` (`custID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `repair_job`
+--
+ALTER TABLE `repair_job`
+  ADD CONSTRAINT `fk_custID` FOREIGN KEY (`custID`) REFERENCES `customer` (`custID`),
+  ADD CONSTRAINT `paymentID_fk` FOREIGN KEY (`paymentID`) REFERENCES `payment` (`paymentID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `serialNum_fk` FOREIGN KEY (`serialNum`) REFERENCES `device` (`serialNum`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `staffID_fk` FOREIGN KEY (`staffID`) REFERENCES `staff` (`staffID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `statusID_fk` FOREIGN KEY (`statusID`) REFERENCES `status` (`statusID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
