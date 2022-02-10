@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2022 at 03:49 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.27
+-- Generation Time: Feb 10, 2022 at 02:54 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `customer` (
+  `custID` int(11) NOT NULL,
   `custPhone` varchar(15) NOT NULL,
   `custName` varchar(50) NOT NULL,
   `custUsername` varchar(50) NOT NULL,
@@ -46,6 +47,7 @@ CREATE TABLE `customer` (
 CREATE TABLE `device` (
   `serialNum` varchar(30) NOT NULL,
   `brand` varchar(10) NOT NULL,
+  `model` varchar(50) NOT NULL,
   `typeName` varchar(10) NOT NULL,
   `color` varchar(20) NOT NULL,
   `custPhone` varchar(15) NOT NULL
@@ -71,14 +73,11 @@ CREATE TABLE `payment` (
 --
 
 CREATE TABLE `repair_job` (
-  `jobID` varchar(30) NOT NULL,
+  `jobID` int(30) NOT NULL,
   `dateSendDevice` date NOT NULL,
-  `dateComplete` date DEFAULT NULL,
   `trackingNum` varchar(30) NOT NULL,
   `problem` varchar(150) NOT NULL,
-  `cost` float DEFAULT NULL,
   `statusDate` date NOT NULL,
-  `statusTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `custPhone` varchar(15) NOT NULL,
   `staffID` int(11) NOT NULL,
   `statusID` int(11) NOT NULL,
@@ -119,7 +118,7 @@ CREATE TABLE `status` (
 -- Indexes for table `customer`
 --
 ALTER TABLE `customer`
-  ADD PRIMARY KEY (`custPhone`);
+  ADD PRIMARY KEY (`custID`);
 
 --
 -- Indexes for table `device`
@@ -156,10 +155,22 @@ ALTER TABLE `status`
 --
 
 --
+-- AUTO_INCREMENT for table `customer`
+--
+ALTER TABLE `customer`
+  MODIFY `custID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
   MODIFY `paymentID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `repair_job`
+--
+ALTER TABLE `repair_job`
+  MODIFY `jobID` int(30) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `staff`
