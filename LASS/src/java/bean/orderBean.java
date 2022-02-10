@@ -9,6 +9,6 @@ package bean;
  *
  * @author Acer
  */
-public class order {
+public class orderBean {
     
 }
