@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Tables / Data - NiceAdmin Bootstrap Template</title>
+  <title>View Order</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -100,6 +100,14 @@
           </li>
         </ul>
       </li><!-- End Order Nav -->
+      
+      <li class="nav-heading">Pages</li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="">
+          <i class="bi bi-card-list"></i>
+          <span>Register New Staff</span>
+        </a>
+      </li><!-- End Register Page Nav -->
 
   </aside><!-- End Sidebar-->
 
@@ -123,11 +131,16 @@
                   <tr>
                     <th scope="col">Job ID</th>
                     <th scope="col">Serial Number</th>
+                    <th scope="col">Customer ID</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Staff Assigned</th>
                     <th scope="col">Date Send Device</th>
                     <th scope="col">Tracking Number</th>
                     <th scope="col">Problem</th>
                     <th scope="col">Date Status</th>
                     <th scope="col">Status</th>
+                    <th scope="col">Payment ID</th>
+                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>

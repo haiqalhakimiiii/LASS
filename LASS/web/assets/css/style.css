@@ -506,6 +506,7 @@ h1, h2, h3, h4, h5, h6 {
 .header-nav .profile {
   min-width: 240px;
   padding-bottom: 0;
+  
 }
 .header-nav .profile .dropdown-header h6 {
   font-size: 18px;
