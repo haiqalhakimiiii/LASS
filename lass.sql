@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2022 at 04:06 PM
+-- Generation Time: Feb 11, 2022 at 02:31 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -78,7 +78,7 @@ CREATE TABLE `repair_job` (
   `trackingNum` varchar(30) NOT NULL,
   `problem` varchar(150) NOT NULL,
   `statusDate` date NOT NULL,
-  `staffID` int(11) NOT NULL,
+  `staffID` int(11) DEFAULT NULL,
   `statusID` int(11) NOT NULL,
   `serialNum` varchar(30) NOT NULL,
   `paymentID` int(30) NOT NULL,
@@ -109,6 +109,13 @@ CREATE TABLE `status` (
   `statusID` int(11) NOT NULL,
   `statusDescription` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `status`
+--
+
+INSERT INTO `status` (`statusID`, `statusDescription`) VALUES
+(1, 'Processing');
 
 --
 -- Indexes for dumped tables
