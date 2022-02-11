@@ -20,6 +20,10 @@
         <servlet-name>paymentServlet</servlet-name>
         <servlet-class>servlet.paymentServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>registerDeviceServlet</servlet-name>
+        <servlet-class>servlet.registerDeviceServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>orderServlet</servlet-name>
         <url-pattern>/orderServlet</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>paymentServlet</servlet-name>
         <url-pattern>/paymentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>registerDeviceServlet</servlet-name>
+        <url-pattern>/registerDeviceServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
