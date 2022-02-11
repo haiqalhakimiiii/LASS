@@ -305,20 +305,6 @@ while(resultSet.next()){
                     </select>
                   </div>
                 </div>
-
-                    <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label">Total Price</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name = "totalPrice" placeholder="RM <%=resultSet.getString("p.totalPrice") %>">
-                  </div>
-                </div>
-                      
-                      <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label">Deposit</label>
-                  <div class="col-sm-10">
-                    <input type="number" class="form-control"  name = "deposit" placeholder = "RM <%=resultSet.getString("p.deposit") %>">
-                  </div>
-                </div>
                       
                       <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Tracking Number</label>
@@ -352,7 +338,7 @@ e.printStackTrace();
                   <label class="col-sm-2 col-form-label">Staff</label>
                   <div class="col-sm-10">
                       <select class="form-select" aria-label="Default select example" name="staffID">
-                          <option selected>Select Status</option>
+                          <option selected>Select Staff</option>
                       
 <%
 try{

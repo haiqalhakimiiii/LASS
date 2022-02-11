@@ -94,9 +94,6 @@ public class paymentServlet extends HttpServlet {
         String totalPrice = request.getParameter("totalPrice");
         String deposit = request.getParameter("deposit");
         
-        out.println("paymentID");
-        out.println("totalPrice");
-        out.println("deposit");
          try{  
             //create statement to update data in the database
             Connection con = orderServlet.getConnection();  

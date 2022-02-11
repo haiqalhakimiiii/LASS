@@ -106,9 +106,6 @@ public class orderServlet extends HttpServlet {
         String statusID = request.getParameter("statusID");
         String trackingNum = request.getParameter("trackingNum");
         
-        out.println(statusDate);
-        out.println(statusID);
-        out.println(jobID);
         
          try{  
             //create statement to update data in the database

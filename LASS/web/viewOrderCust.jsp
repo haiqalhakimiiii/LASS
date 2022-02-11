@@ -121,20 +121,13 @@
             </a>
           </li>
           <li>
-            <a href="viewOrderStaff.jsp">
+            <a href="viewOrderCust.jsp">
               <i class="bi bi-circle"></i><span>View Order</span>
             </a>
           </li>
         </ul>
       </li><!-- End Order Nav -->
       
-      <li class="nav-heading">Pages</li>
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="">
-          <i class="bi bi-card-list"></i>
-          <span>Register New Staff</span>
-        </a>
-      </li><!-- End Register Page Nav -->
 
   </aside><!-- End Sidebar-->
 
