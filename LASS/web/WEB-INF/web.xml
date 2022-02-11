@@ -4,9 +4,41 @@
         <servlet-name>orderServlet</servlet-name>
         <servlet-class>servlet.orderServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>assignStaffServlet</servlet-name>
+        <servlet-class>servlet.assignStaffServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>updatePayment</servlet-name>
+        <servlet-class>servlet.updatePayment</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>updatePaymentServlet</servlet-name>
+        <servlet-class>servlet.updatePaymentServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>paymentServlet</servlet-name>
+        <servlet-class>servlet.paymentServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>orderServlet</servlet-name>
         <url-pattern>/orderServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>assignStaffServlet</servlet-name>
+        <url-pattern>/assignStaffServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updatePayment</servlet-name>
+        <url-pattern>/updatePayment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updatePaymentServlet</servlet-name>
+        <url-pattern>/updatePaymentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>paymentServlet</servlet-name>
+        <url-pattern>/paymentServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

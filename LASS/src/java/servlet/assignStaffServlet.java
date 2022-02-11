@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Naqib
  */
-public class orderServlet extends HttpServlet {
+public class assignStaffServlet extends HttpServlet {
 
     
     public static Connection getConnection() {
@@ -74,17 +74,6 @@ public class orderServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        
-        PrintWriter out = response.getWriter();
-        String order_id = request.getParameter("order_id");
-        String order_detail = request.getParameter("order_detail");
-        String order_date = request.getParameter("order_date");
-        String order_time = request.getParameter("order_time");
-        String Package = request.getParameter("Package");
-        int cust_id = Integer.parseInt(request.getParameter("cust_id"));
-        int staff_id = Integer.parseInt(request.getParameter("staff_id"));
-        int status_id = Integer.parseInt(request.getParameter("status_id"));
-        
     }
 
     /**
@@ -102,27 +91,19 @@ public class orderServlet extends HttpServlet {
         
         PrintWriter out = response.getWriter();
         String jobID = request.getParameter("jobID");
-        String statusDate = request.getParameter("statusDate");
-        String statusID = request.getParameter("statusID");
-        String trackingNum = request.getParameter("trackingNum");
+        String staffID = request.getParameter("staffID");
         
-        out.println(statusDate);
-        out.println(statusID);
         out.println(jobID);
-        
+        out.println(staffID);
          try{  
             //create statement to update data in the database
             Connection con = orderServlet.getConnection();  
             PreparedStatement pstmt =con.prepareStatement( 
-            "UPDATE repair_job SET statusDate = ?, statusID = ?, trackingNum = ? WHERE jobID = ?");
+            "UPDATE repair_job SET staffID = ? WHERE jobID = ?");
 
-            pstmt.setString(1, statusDate);
-            pstmt.setInt(2, Integer.parseInt(statusID));
-            pstmt.setString(3, trackingNum);
-            pstmt.setInt(4, Integer.parseInt(jobID));
+            pstmt.setInt(1, Integer.parseInt(staffID));
+            pstmt.setInt(2, Integer.parseInt(jobID));
             pstmt.executeUpdate();
-                    
-            out.println(statusDate);
             request.getRequestDispatcher("viewOrderStaff.jsp").forward(request, response);
 
          } catch(Exception ex){

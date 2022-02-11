@@ -159,50 +159,25 @@
               <ul class="nav nav-tabs nav-tabs-bordered">
 
                 <li class="nav-item">
-                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#order-details">Details</button>
+                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Details</button>
                 </li>
-
-                <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#update-order">Update Status</button>
-                </li>
-                
-                <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#assign-staff">Assign Staff</button>
-                </li>
-                
-                <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#update-payment">Update Payment Details</button>
-                </li>
-
               </ul>
               
 <%
 try{
 connection = DriverManager.getConnection(url, username, password);
 statement=connection.createStatement();
-String sql ="SELECT r.statusDate, s.statusDescription, r.jobID, c.custAddress, c.custID, c.custName, c.custPhone, r.dateSendDevice, r.problem, r.trackingNum, t.staffID, t.staffName, r.serialNum, d.brand, d.model, p.totalPrice, p.deposit, p.datePayment FROM repair_job r JOIN status s ON r.statusID = s.statusID JOIN device d ON r.serialNum = d.serialNum JOIN staff t ON r.staffID = t.staffID JOIN customer c ON r.custID = c.custID JOIN payment p ON r.paymentID = p.paymentID WHERE r.jobID=" + job_id;
+String sql ="SELECT r.statusDate, s.statusDescription, r.jobID, c.custID, c.custName, c.custAddress, c.custPhone, r.dateSendDevice, r.problem, r.trackingNum, t.staffID, t.staffName, r.serialNum, d.brand, d.model, p.totalPrice, p.deposit, p.datePayment FROM repair_job r JOIN status s ON r.statusID = s.statusID JOIN device d ON r.serialNum = d.serialNum JOIN staff t ON r.staffID = t.staffID JOIN customer c ON r.custID = c.custID JOIN payment p ON r.paymentID = p.paymentID WHERE r.jobID=" + job_id;
 resultSet = statement.executeQuery(sql);
 int i=0;
 while(resultSet.next()){
 %>
               <div class="tab-content pt-2">
 
-                <div class="tab-pane fade show active profile-overview" id="order-details">
+                <div class="tab-pane fade show active profile-overview" id="profile-overview">
                   <h5 class="card-title">Status</h5>
                   <p class="small fst-italic"><%=resultSet.getString("r.statusDate") %></p>
                   <p class="small fst-italic"><%=resultSet.getString("s.statusDescription") %></p>
-                  
-                  <h5 class="card-title">Staff Assigned</h5>
-                  
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Staff ID</div>
-                    <div class="col-lg-9 col-md-8"><%=resultSet.getString("t.staffID") %></div>
-                  </div>
-                  
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Name</div>
-                    <div class="col-lg-9 col-md-8"><%=resultSet.getString("t.staffName") %></div>
-                  </div>
                   
                   <h5 class="card-title">Customer Details</h5>
                   
@@ -280,139 +255,6 @@ while(resultSet.next()){
                   </div>
 
                 </div>
-
-                <div class="tab-pane fade profile-edit pt-3" id="update-order">
-
-                  <!-- Edit Status -->
-                  <form action="orderServlet" method="post">
-                      <input type="hidden" name="jobID" value="<%=resultSet.getString("r.jobID") %>">
-
-                    <div class="row mb-3">
-                  <label for="inputDate" class="col-sm-2 col-form-label">Status Date</label>
-                  <div class="col-sm-10">
-                    <input type="date" name = "statusDate" class="form-control">
-                  </div>
-                </div>
-
-                    <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label">Status</label>
-                  <div class="col-sm-10">
-                    <select class="form-select" aria-label="Default select example" name="statusID">
-                      <option selected>Select Status</option>
-                      <option value="1">Troubleshooting</option>
-                      <option value="2">Repairing</option>
-                      <option value="3">Completed</option>
-                    </select>
-                  </div>
-                </div>
-
-                    <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label">Total Price</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name = "totalPrice" placeholder="RM <%=resultSet.getString("p.totalPrice") %>">
-                  </div>
-                </div>
-                      
-                      <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label">Deposit</label>
-                  <div class="col-sm-10">
-                    <input type="number" class="form-control"  name = "deposit" placeholder = "RM <%=resultSet.getString("p.deposit") %>">
-                  </div>
-                </div>
-                      
-                      <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label">Tracking Number</label>
-                  <div class="col-sm-10">
-                    <input type="number" class="form-control" name = "trackingNum" placeholder="<%=resultSet.getString("r.trackingNum") %>">
-                  </div>
-                </div>
-
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Update Status</button>
-                    </div>
-                  </form><!-- End Edit Order -->
-
-                </div>
-                  
-                  <div class="tab-pane fade profile-edit pt-3" id="assign-staff">
-
-                  <!-- Assign Staff -->
-                  <form  action="assignStaffServlet" method="post">
-                      <input type="hidden" name="jobID" value="<%=resultSet.getString("r.jobID") %>">
-
-<%
-i++;
-}
-connection.close();
-} catch (Exception e) {
-e.printStackTrace();
-}
-%>
-                    <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label">Staff</label>
-                  <div class="col-sm-10">
-                      <select class="form-select" aria-label="Default select example" name="staffID">
-                          <option selected>Select Status</option>
-                      
-<%
-try{
-connection = DriverManager.getConnection(url, username, password);
-statement=connection.createStatement();
-String sql ="SELECT staffID, staffName FROM staff";
-resultSet = statement.executeQuery(sql);
-int i=0;
-while(resultSet.next()){
-%>
-                    
-                      <option value="<%=resultSet.getString("staffID") %>"><%=resultSet.getString("staffName") %></option>
-                    
-<%
-i++;
-}
-connection.close();
-} catch (Exception e) {
-e.printStackTrace();
-}
-%>
-                    </select>
-                  </div>
-                </div>
-
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Assign Staff</button>
-                    </div>
-                  </form><!-- End Assign Staff -->
-
-                </div>
-<%
-try{
-connection = DriverManager.getConnection(url, username, password);
-statement=connection.createStatement();
-String sql ="SELECT r.jobID, r.paymentID, p.totalPrice, p.deposit FROM repair_job r JOIN payment p ON r.paymentID = p.paymentID WHERE r.jobID=" + job_id;
-resultSet = statement.executeQuery(sql);
-int i=0;
-while(resultSet.next()){
-%>
-                    <div class="tab-pane fade profile-edit pt-3" id="update-payment">
-
-                  <!-- Edit Status -->
-                  <form action="paymentServlet" method="post">
-                      <input type="hidden" name="paymentID" value="<%=resultSet.getString("r.paymentID") %>">
-
-
-                    <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label">Total Price</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" name = "totalPrice" placeholder="RM <%=resultSet.getString("p.totalPrice") %>">
-                  </div>
-                </div>
-                      
-                      <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label">Deposit</label>
-                  <div class="col-sm-10">
-                    <input type="number" class="form-control"  name = "deposit" placeholder = "RM <%=resultSet.getString("p.deposit") %>">
-                  </div>
-                </div>
 <%
 i++;
 }
@@ -422,12 +264,6 @@ e.printStackTrace();
 }
 %>
 
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Update Payment</button>
-                    </div>
-                  </form><!-- End Edit Order -->
-
-                </div>
               </div><!-- End Bordered Tabs -->
 
             </div>
