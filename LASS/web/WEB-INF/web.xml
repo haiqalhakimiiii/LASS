@@ -24,6 +24,10 @@
         <servlet-name>registerDeviceServlet</servlet-name>
         <servlet-class>servlet.registerDeviceServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CustRegServlet</servlet-name>
+        <servlet-class>servlet.CustRegServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>orderServlet</servlet-name>
         <url-pattern>/orderServlet</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>registerDeviceServlet</servlet-name>
         <url-pattern>/registerDeviceServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustRegServlet</servlet-name>
+        <url-pattern>/CustRegServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
