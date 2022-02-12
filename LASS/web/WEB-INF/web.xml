@@ -28,6 +28,10 @@
         <servlet-name>CustRegServlet</servlet-name>
         <servlet-class>servlet.CustRegServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>addOrderServlet</servlet-name>
+        <servlet-class>servlet.addOrderServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>orderServlet</servlet-name>
         <url-pattern>/orderServlet</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>CustRegServlet</servlet-name>
         <url-pattern>/CustRegServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addOrderServlet</servlet-name>
+        <url-pattern>/addOrderServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
