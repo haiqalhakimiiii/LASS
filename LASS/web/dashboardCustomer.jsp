@@ -2,7 +2,8 @@
 <%
     if (session != null) {
         if (session.getAttribute("custPhone") != null) {
-            String name = (String) session.getAttribute("custName");
+            String name = (String) session.getAttribute("custPhone");
+            
             out.print("Hello, " + name + ".  Welcome!");
         } else {
             response.sendRedirect("CustLogin.jsp");
@@ -32,7 +33,7 @@
 
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Dashboard</h5>
+                                <h5 class="card-title"> Dashboard</h5>
 
 
 

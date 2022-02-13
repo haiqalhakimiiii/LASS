@@ -1,3 +1,37 @@
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%
+    if (session != null) {
+        if (session.getAttribute("custPhone") != null) {
+            String custPhone = (String) session.getAttribute("custPhone");
+            
+        } else {
+            response.sendRedirect("CustLogin.jsp");
+        }
+    }
+    
+        Connection conn = null;
+        String url = "jdbc:mysql://localhost:3306/lass";
+        String username = "root";
+        String password = "";
+        try{
+            Class.forName("com.mysql.jdbc.Driver");   
+        }
+        catch(ClassNotFoundException e){
+            e.printStackTrace();
+        }
+        try {
+            conn = DriverManager.getConnection(url,username,password);
+             System.out.println("Printing connection object" + conn);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -170,7 +204,29 @@
                       <input type="text" class="form-control" name="color">
                   </div>
                 </div>
-                  <input type="hidden" name="custID" value="">
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">Customer ID</label>
+                  <div class="col-sm-10">
+                      <%
+                        try{
+                        connection = DriverManager.getConnection(url, username, password);
+                        statement=connection.createStatement();
+                        String custPhone = (String)session.getAttribute("custPhone");
+                        String sql ="SELECT * FROM CUSTOMER WHERE CUSTPHONE="+custPhone;
+                        resultSet = statement.executeQuery(sql);
+                        int custID = Integer.parseInt(resultSet.getString("custID")); 
+                      %>
+                        <input type="text" name="custID" value="<%=custID%>" disabled>
+                      <%
+                        connection.close();
+                        }catch (Exception e) {
+                          e.printStackTrace();
+                        }
+                    %>
+                  </div>
+                </div>
+                  
+                  
            
                
                 <div class="row mb-3">

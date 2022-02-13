@@ -77,8 +77,28 @@
 
             <nav class="header-nav ms-auto">
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <span class="d-none d-md-block dropdown-toggle ps-2">Customer Name</span>
-
+                    
+                    
+                    <%
+                        try{
+                        connection = DriverManager.getConnection(url, username, password);
+                        statement=connection.createStatement();
+                        String custPhone = (String) session.getAttribute("custPhone");
+                        String sql ="SELECT * FROM CUSTOMER WHERE CUSTPHONE="+custPhone;
+                        resultSet = statement.executeQuery(sql);
+                        int i=0;
+                        while(resultSet.next()){
+                    %>
+                    <span class="d-none d-md-block dropdown-toggle ps-2"><%=resultSet.getString("custName")%></span>
+                    <%
+                        i++;
+                        }
+                        connection.close();
+                        } catch (Exception e) {
+                        e.printStackTrace();
+                        }
+                    %>
+                    
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
 
                         <li>
@@ -98,37 +118,54 @@
         </header><!-- End Header -->
 
         <!-- ======= Sidebar ======= -->
-        <aside id="sidebar" class="sidebar">
+  <aside id="sidebar" class="sidebar">
 
-            <ul class="sidebar-nav" id="sidebar-nav">
+    <ul class="sidebar-nav" id="sidebar-nav">
 
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="dashboardCustomer">
-                        <i class="bi bi-grid"></i>
-                        <span>Dashboard</span>
-                    </a>
-                </li><!-- End Dashboard Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="dashboardCustomer.jsp">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
 
-                <li class="nav-item">
-                    <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-                        <i class="bi bi-menu-button-wide"></i><span>Orders</span><i class="bi bi-chevron-down ms-auto"></i>
-                    </a>
-                    <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                        <li>
-                            <a href="">
-                                <i class="bi bi-circle"></i><span>Add Order</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="viewOrderCust.jsp">
-                                <i class="bi bi-circle"></i><span>View Order</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li><!-- End Order Nav -->
-
-
-        </aside><!-- End Sidebar-->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#orders-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Orders</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="orders-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="addOrder-1.jsp">
+              <i class="bi bi-circle"></i><span>Add Order</span>
+            </a>
+          </li>
+          <li>
+            <a href="viewOrderCust.jsp">
+              <i class="bi bi-circle"></i><span>View Order</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Order Nav -->
+      
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#device-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-display"></i><span>Devices</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="device-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="registerDeviceForm.jsp">
+              <i class="bi bi-circle"></i><span>Register Device</span>
+            </a>
+          </li>
+          <li>
+            <a href="viewDevice.jsp">
+              <i class="bi bi-circle"></i><span>View Device</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Device Nav -->
+      
+  </aside><!-- End Sidebar-->
 
         <main id="main" class="main">
 
