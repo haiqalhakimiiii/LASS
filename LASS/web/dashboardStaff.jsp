@@ -1,17 +1,45 @@
-<%-- 
-    Document   : dashboardAdmin
-    Created on : Feb 11, 2022, 5:25:36 PM
-    Author     : hakim
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+        <title>Staff</title>
+        
+        
     </head>
+
     <body>
-        <h1>Hello World!</h1>
+
+        <%@include file="StaffNavbar.jsp"%>
+
+        <main id="main" class="main">
+
+
+
+            <section class="section">
+                <div class="row">
+                    <div class="col-lg-6">
+
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Dashboard</h5>
+
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+
+
+        </main><!-- End #main -->
+     
     </body>
+
 </html>

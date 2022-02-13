@@ -1,15 +1,62 @@
-<%-- 
-    Document   : CustLogin
-    Created on : Feb 11, 2022, 7:17:13 PM
-    Author     : USER
---%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+         pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Customer Login </title>
+        <meta charset="utf-8">
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+        <title>Logins As Customer</title>
+        <meta content="" name="description">
+        <meta content="" name="keywords">
+
+        <!-- Favicons -->
+        <link href="assets/img/favicon.png" rel="icon">
+        <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.gstatic.com" rel="preconnect">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+        <!-- Vendor CSS Files -->
+        <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+        <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+        <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+        <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+        <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+        <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+        <!-- Template Main CSS File -->
+        <link href="assets/css/style.css" rel="stylesheet">
+        <style>
+            .div{
+                width: 530px;
+                height: 90px;  
+                padding: 30px;
+            }
+            .card{
+                width: 30%;
+                height: 45%;
+                position: fixed;
+                top: 25%;
+                left: 35%;
+                margin-top: 1px;
+                margin-left: 10px;
+                align-content: center;
+            }
+            .form-control{
+                width: 50%;
+                text-align: right;
+            }
+            input {
+                display:block;
+                margin:0 auto;
+            }
+        </style>
+        <title>Training Management System</title>
         <script
             src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -18,47 +65,38 @@
         src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.min.js"></script>
     </head>
     <body>
+
+        <%@include file="HomeNavbar.jsp"%>
         <div class="absoluteCenter">
 
-            <div style="text-align: center">
-                <h1>Login</h1>
-                <form action="login" method="post" id="loginForm">
-                    <label for="email">Phone Number:</label><br>
-                    <input type= "text" name="Phone" size="30" />
-                    <br><br>
-                    <label for="password">Password:</label><br>
-                    <input type="password" name="password" size="30" />
-                    <br>${message}
-                    <br><br>			
-                    <button type="submit">Login</button><br>
-                    <a href="index.html">Back to Home</a>
-                </form>
-            </div>
-        </div>
-    </body>
-    <script type="text/javascript">
+            <div style="text-align: center"><br><br><br><br><br>
+                <h1>Login</h1><br>
+                <div class="div2">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="CustLoginServlet" method="post" id="loginForm">
+                                <br><label for="email">Phone Number:</label><br><br>
+                                <input type= "text" style="text-align: center" class="form-control" name="custPhone" size="30" required />
+                                <br>
+                                <label for="password">Password:</label><br><br>
+                                <input type="password"  style="text-align: center" class="form-control" name="custPassword" size="30" required />
+                                <br>${message}<br>		
+                                <button type="submit" class="btn btn-primary">Login</button><br><br>
+                                <a href="index.jsp">Back to Home</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
 
-        $(document).ready(function () {
-            $("#loginForm").validate({
-                rules: {
-                    email: {
-                        required: true,
-                        email: true
-                    },
+                </body>
 
-                    password: "required",
-                },
 
-                messages: {
-                    email: {
-                        required: "Please enter email",
-                        email: "Please enter a valid email address"
-                    },
+                <script type="text/javascript"></script>
 
-                    password: "Please enter password"
-                }
-            });
 
-        });
-    </script>
-</html>
+
+
+
+
+
+                </html>

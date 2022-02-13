@@ -1,16 +1,6 @@
 
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8"%>
-<%
-    if (session != null) {
-        if (session.getAttribute("staffUsername") != null) {
-            String name = (String) session.getAttribute("staffName");
-            out.print("Hello, " + name + ".  Welcome!");
-        } else {
-            response.sendRedirect("StaffLogin.jsp");
-        }
-    }
-%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,7 +8,7 @@
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-        <title>Login As Staff</title>
+        <title>Logins As Customer</title>
         <meta content="" name="description">
         <meta content="" name="keywords">
 
@@ -76,28 +66,13 @@
     </head>
     <body>
 
-        <%@include file="HomeNavbar.jsp"%>
-
+        <%@include file="HomeNavbar.jsp" %>
         <div class="absoluteCenter">
 
             <div style="text-align: center"><br><br><br><br><br>
-                <h1>Staff Login</h1><br>
-                <div class="div2">
-                    <div class="card">
-                        <div class="card-body">
-                            <form action="StaffLoginServlet" method="post" id="loginForm">
-                                <br><label for="staffUsername">Phone Number:</label><br><br>
-                                <input type= "text" style="text-align: center" class="form-control" name="staffUsername" size="30" required/>
-                                <br>
-                                <label for="staffPassword">Password:</label><br><br>
-                                <input type="password"  style="text-align: center" class="form-control" name="staffPassword" size="30" required/>
-                                <br>${message}<br>		
-                                <button type="submit" class="btn btn-primary">Login</button><br><br>
-                                <a href="index.jsp">Back to Home</a>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+                <h1>Registered Successful!</h1><br>
+                <p> Please head to login to sign in to your Account! </p>
+                <a href="CustLogin.jsp">Login</a>
 
                 </body>
 
@@ -106,7 +81,7 @@
 
 
 
-
+                
 
 
 
