@@ -1,3 +1,28 @@
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%
+        Connection conn = null;
+        String url = "jdbc:mysql://localhost:3306/lass";
+        String username = "root";
+        String password = "";
+        try{
+            Class.forName("com.mysql.jdbc.Driver");   
+        }
+        catch(ClassNotFoundException e){
+            e.printStackTrace();
+        }
+        try {
+            conn = DriverManager.getConnection(url,username,password);
+             System.out.println("Printing connection object" + conn);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +30,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Register Device</title>
+  <title>Add Order</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -124,69 +149,68 @@
       <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Register Device</h1>
+      <h1>Add Order</h1>
     </div><!-- End Page Title -->
 
     <section class="section">
-  <div class="row">
+      <div class="row">
         <div class="col-lg-6">
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Register your device here!</h5>
-
+              <h5 class="card-title">General Form Elements</h5>
+              <%
+                String custID = "";
+                String custName = "";
+                String serialNum = request.getParameter("serialNum");
+              %>
               <!-- General Form Elements -->
-              <form action="registerDeviceServlet" method="POST">
+              <form action="addOrderServlet" method="POST">
                 <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label">Device Type</label>
-                  <div class="col-sm-10">
-                      <select class="form-select" aria-label="Default select example" name="typeName">
-                      <option selected value="Laptop">Laptop</option>
-                      <option value="Printer">Printer</option>
-                    </select>
-                  </div>
+                <label for="custID" class="col-sm-2 col-form-label">Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="custID" value="<%=custID+" - "+custName%>" disabled>
                 </div>
+              </div>
                 <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label">Serial Number</label>
-                  <div class="col-sm-10">
-                      <input type="text" class="form-control" name="serialNum">
-                  </div>
+                <label for="serialNum" class="col-sm-2 col-form-label">Serial Num</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="serialNum" value="<%=serialNum%>" disabled>
                 </div>
-                <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label">Brand</label>
-                  <div class="col-sm-10">
-                      <input type="text" class="form-control" name="brand">
-                  </div>
+              </div>
+              <div class="row mb-3">
+                <label for="dateSendDevice" class="col-sm-2 col-form-label">Date Send Device</label>
+                <div class="col-sm-10">
+                    <input type="date" class="form-control" name="dateSendDevice">
                 </div>
-                <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label">Model</label>
-                  <div class="col-sm-10">
-                      <input type="text" class="form-control" name="model">
-                  </div>
+              </div>
+              <div class="row mb-3">
+                <label for="problem" class="col-sm-2 col-form-label">Problem</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="problem">
                 </div>
-                <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label">Color</label>
-                  <div class="col-sm-10">
-                      <input type="text" class="form-control" name="color">
-                  </div>
+              </div>
+              <div class="row mb-3">
+                <label for="trackingNum" class="col-sm-2 col-form-label">Tracking Number</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="trackingNum">
                 </div>
-                  <input type="hidden" name="custID" value="">
-           
-               
-                <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label"></label>
-                  <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Register</button>
-                  </div>
-                </div>
+              </div>
 
-              </form><!-- End General Form Elements -->
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                  <button type="submit" class="btn btn-primary">Add Order</button>
+                </div>
+              </div>
+
+            </form>
+              <!-- End General Form Elements -->
 
             </div>
           </div>
 
         </div>
-
       </div>
     </section>
 

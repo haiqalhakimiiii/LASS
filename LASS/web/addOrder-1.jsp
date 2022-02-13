@@ -1,3 +1,28 @@
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%
+        Connection conn = null;
+        String url = "jdbc:mysql://localhost:3306/lass";
+        String username = "root";
+        String password = "";
+        try{
+            Class.forName("com.mysql.jdbc.Driver");   
+        }
+        catch(ClassNotFoundException e){
+            e.printStackTrace();
+        }
+        try {
+            conn = DriverManager.getConnection(url,username,password);
+             System.out.println("Printing connection object" + conn);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +30,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Register Device</title>
+  <title>Add Order</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -124,69 +149,49 @@
       <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Register Device</h1>
+      <h1>Add Order</h1>
     </div><!-- End Page Title -->
 
     <section class="section">
-  <div class="row">
-        <div class="col-lg-6">
-
-          <div class="card">
+      <div class="row">
+        <div class="card text-center">
             <div class="card-body">
-              <h5 class="card-title">Register your device here!</h5>
-
-              <!-- General Form Elements -->
-              <form action="registerDeviceServlet" method="POST">
-                <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label">Device Type</label>
+              <h5 class="card-title">Please select current registered device or register new device</h5>
+              <!-- Select Device Form -->
+              <form action="addOrder-2.jsp" method="POST">
+               <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label">Select Device</label>
                   <div class="col-sm-10">
-                      <select class="form-select" aria-label="Default select example" name="typeName">
-                      <option selected value="Laptop">Laptop</option>
-                      <option value="Printer">Printer</option>
+                    <select class="form-select" aria-label="Default select example" name="serialNum">
+                      <%
+                        try{
+                        connection = DriverManager.getConnection(url, username, password);
+                        statement=connection.createStatement();
+                        String sql ="SELECT * FROM DEVICE WHERE CUSTID='1'";
+                        resultSet = statement.executeQuery(sql);
+                        int i=0;
+                        while(resultSet.next()){
+                        %>
+                      <option value="<%=resultSet.getString("serialNum") %>"><%=resultSet.getString("model") %></option>
+                      <%
+                        i++;
+                        }
+                        connection.close();
+                        } catch (Exception e) {
+                        e.printStackTrace();
+                        }
+                        %>
                     </select>
                   </div>
+                  <br><br><br><br>
+                  <input type="submit" class="btn btn-primary" value="Go">
                 </div>
-                <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label">Serial Number</label>
-                  <div class="col-sm-10">
-                      <input type="text" class="form-control" name="serialNum">
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label">Brand</label>
-                  <div class="col-sm-10">
-                      <input type="text" class="form-control" name="brand">
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label">Model</label>
-                  <div class="col-sm-10">
-                      <input type="text" class="form-control" name="model">
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label">Color</label>
-                  <div class="col-sm-10">
-                      <input type="text" class="form-control" name="color">
-                  </div>
-                </div>
-                  <input type="hidden" name="custID" value="">
-           
-               
-                <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label"></label>
-                  <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Register</button>
-                  </div>
-                </div>
-
-              </form><!-- End General Form Elements -->
-
+              </form><!-- Select Device Form -->
+              <br><br>
+              <h5>Or Register New Device Here</h5>
+              <a href="registerDeviceForm.jsp"><button type="button" class="btn btn-secondary">Register New Device</button></a>
             </div>
-          </div>
-
         </div>
-
       </div>
     </section>
 
