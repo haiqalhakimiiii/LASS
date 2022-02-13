@@ -1,16 +1,6 @@
 
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8"%>
-<%
-    if (session != null) {
-        if (session.getAttribute("staffUsername") != null) {
-            String name = (String) session.getAttribute("staffName");
-            out.print("Hello, " + name + ".  Welcome!");
-        } else {
-            response.sendRedirect("StaffLogin.jsp");
-        }
-    }
-%>
 <!DOCTYPE html>
 <html>
     <head>

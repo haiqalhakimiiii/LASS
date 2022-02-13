@@ -82,7 +82,7 @@
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
 
                         <li>
-                            <a class="dropdown-header d-flex align-items-center" href="#">
+                            <a class="dropdown-header d-flex align-items-center" href="CustlogoutServlet">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Log Out</span>
                             </a>

@@ -15,53 +15,32 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author USER
+ * @author hakim
  */
 public class StaffLogoutServlet extends HttpServlet {
 
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
+     * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            
-        }
-    }
-
- 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        
-      
         PrintWriter out = response.getWriter();
         out.println("Thank you!!, Your session was destroyed successfully!!");
         HttpSession session = request.getSession(false);
         // session.setAttribute("user", null);
         session.removeAttribute("staffUsername");
         request.getRequestDispatcher("StaffLogin.jsp");
-        response.sendRedirect("Stafflogin.jsp");
+        response.sendRedirect("StaffLogin.jsp");
         out.close();
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
 }
