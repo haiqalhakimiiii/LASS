@@ -29,8 +29,24 @@
         <servlet-class>servlet.CustRegServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>addOrderServlet</servlet-name>
-        <servlet-class>servlet.addOrderServlet</servlet-class>
+        <servlet-name>StaffRegServlet</servlet-name>
+        <servlet-class>servlet.StaffRegServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StaffLoginServlet</servlet-name>
+        <servlet-class>servlet.StaffLoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CustLoginServlet</servlet-name>
+        <servlet-class>servlet.CustLoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CustlogoutServlet</servlet-name>
+        <servlet-class>servlet.CustlogoutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StaffLogoutServlet</servlet-name>
+        <servlet-class>servlet.StaffLogoutServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>orderServlet</servlet-name>
@@ -61,8 +77,24 @@
         <url-pattern>/CustRegServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>addOrderServlet</servlet-name>
-        <url-pattern>/addOrderServlet</url-pattern>
+        <servlet-name>StaffRegServlet</servlet-name>
+        <url-pattern>/StaffRegServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffLoginServlet</servlet-name>
+        <url-pattern>/StaffLoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustLoginServlet</servlet-name>
+        <url-pattern>/CustLoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustlogoutServlet</servlet-name>
+        <url-pattern>/CustlogoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffLogoutServlet</servlet-name>
+        <url-pattern>/StaffLogoutServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -5,7 +5,7 @@
  */
 package dao;
 
-import bean.CustLogin;
+import bean.CustBean;
 import java.sql.*;
 import util.DBConnection;
 
@@ -17,12 +17,11 @@ import util.DBConnection;
  */
 public class CustRegDao {
 
-    public String CustRegister(CustLogin custLogin) {
+    public String CustRegister(CustBean custLogin) {
 
         Connection conn = null;
         Statement statement = null;
 
-        int custID = custLogin.custID;
         String custPhone = custLogin.custPhone;
         String custName = custLogin.custName;
         String custUsername = custLogin.custUsername;
@@ -35,17 +34,16 @@ public class CustRegDao {
 
             conn = DBConnection.createConnection();
 
-            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO CUSTOMER (CUSTID,CUSTNAME,CUSTNAME,CUSTUSERNAME,CUSTPASSWORD"
-                    + ",CUSTADDRESS,CUSTEMAIL,REGISTERDATE) VALUES (?,?,?,?,?,?,?,?)");
-
-            pstmt.setInt(1, custID);
-            pstmt.setString(2, custPhone);
-            pstmt.setString(3, custName);
-            pstmt.setString(4, custUsername);
-            pstmt.setString(5, custPassword);
-            pstmt.setString(6, custAddress);
-            pstmt.setString(7, custEmail);
-            pstmt.setString(8, registerDate);
+            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO CUSTOMER (CUSTPHONE,CUSTNAME,CUSTUSERNAME,CUSTPASSWORD"
+                    + ",CUSTADDRESS,CUSTEMAIL,REGISTERDATE) VALUES (?,?,?,?,?,?,?)");
+            
+            pstmt.setString(1, custPhone);
+            pstmt.setString(2, custName);
+            pstmt.setString(3, custUsername);
+            pstmt.setString(4, custPassword);
+            pstmt.setString(5, custAddress);
+            pstmt.setString(6, custEmail);
+            pstmt.setString(7, registerDate);
 
             int i = pstmt.executeUpdate();
             if (i > 0) {
@@ -53,7 +51,8 @@ public class CustRegDao {
             } else {
                 return "FAIL";
             }
-
+        
+            
         } catch (SQLException e) {
             return e.getMessage();
 

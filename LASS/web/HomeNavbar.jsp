@@ -48,30 +48,13 @@
         <header id="header" class="header fixed-top d-flex align-items-center">
 
             <div class="d-flex align-items-center justify-content-between">
-                <a href="dashboardStaff.jsp" class="logo d-flex align-items-center">
+                <a href="index.html" class="logo d-flex align-items-center">
                     <span class="d-none d-lg-block">Man Laptop</span>
                 </a>
                 <i class="bi bi-list toggle-sidebar-btn"></i>
             </div><!-- End Logo -->
 
-            <nav class="header-nav ms-auto">
-                <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <span class="d-none d-md-block dropdown-toggle ps-2">Naqib</span>
-
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-
-                        <li>
-                            <a class="dropdown-header d-flex align-items-center" href="StaffLogoutServlet">
-                                <i class="bi bi-box-arrow-right"></i>
-                                <span>Log Out</span>
-                            </a>
-                        </li>
-
-                    </ul><!-- End Profile Dropdown Items -->
-                    </li><!-- End Profile Nav -->
-
-                    </ul>
-            </nav><!-- End Icons Navigation -->
+            
 
 
         </header><!-- End Header -->
@@ -82,44 +65,42 @@
             <ul class="sidebar-nav" id="sidebar-nav">
 
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="dashboardStaff.jsp">
+                    <a class="nav-link collapsed" href="index.jsp">
                         <i class="bi bi-grid"></i>
-                        <span>Dashboard</span>
+                        <span>Home</span>
                     </a>
                 </li><!-- End Dashboard Nav -->
-
+                <li class="nav-heading">Pages</li> 
                 <li class="nav-item">
                     <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-                        <i class="bi bi-menu-button-wide"></i><span>Orders</span><i class="bi bi-chevron-down ms-auto"></i>
+                        <i class="bi bi-menu-button-wide"></i><span>Login</span><i class="bi bi-chevron-down ms-auto"></i>
                     </a>
-                    <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                        <li>
+                    <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">                
+                        <li class="nav-item" >
+                            <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                                <li class="nav-item" >
+                                    <a href="CustLogin.jsp">
+                                        <i class="bi bi-circle"></i><span>Customer Login</span>
+                                        <a href="StaffLogin.jsp">
+                                            <i class="bi bi-circle"></i><span>Staff Login</span>
+                                        </a>
+                                </li>
+                                   <li>
                             <a href="">
-                                <i class="bi bi-circle"></i><span>Add Order</span>
+                                <i class="bi bi-circle"></i><span>Sign Up</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="viewOrderStaff.jsp">
-                                <i class="bi bi-circle"></i><span>View Order</span>
-                            </a>
+                            </ul>
                         </li>
+
                     </ul>
                 </li><!-- End Order Nav -->
 
-                <li class="nav-heading">Pages</li>
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="StaffRegister.jsp">
-                        <i class="bi bi-card-list"></i>
-                        <span>Register New Staff</span>
-                    </a>
-                </li><!-- End Register Page Nav -->
+
+        
 
         </aside><!-- End Sidebar-->
-
-
-
-    </aside><!-- End Sidebar-->
-</tbody>
+    </tbody>
 </table>
 <!-- End Table with stripped rows -->
 
