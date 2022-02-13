@@ -158,7 +158,7 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">General Form Elements</h5>
+              <h5 class="card-title">Add Order Form</h5>
               <%
                 String custID = "";
                 String custName = "";
