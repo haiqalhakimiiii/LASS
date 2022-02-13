@@ -5,6 +5,8 @@
  */
 package servlet;
 
+import bean.orderBean;
+import dao.orderDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -17,60 +19,36 @@ import javax.servlet.http.HttpServletResponse;
  * @author hakim
  */
 public class addOrderServlet extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet addOrderServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet addOrderServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+
+        String date = request.getParameter("dateSendDevice");
+        String problem = request.getParameter("problem");
+        String trackingNum = request.getParameter("trackingNum");
+        String serialNum = request.getParameter("serialNum");
+        int custID = Integer.parseInt(request.getParameter("custID"));
+        int statusID = 1;
+        
+        orderBean order = new orderBean();
+        orderDao orderdao = new orderDao();
+        
+        order.setDateSendDevice(date);
+        order.setProblem(problem);
+        order.setTrackingNum(trackingNum);
+        order.setSerialNum(serialNum);
+        order.setCustID(custID);
+        order.setstatusID(statusID);
+        
+        String addOrder = orderdao.addOrder(order);
+        
+        if(addOrder.equals("SUCCESS")){
+            request.getRequestDispatcher("viewOrderCust.jsp").forward(request,response);
+        }
+        else{
+            request.setAttribute("errMsg", addOrder);
+            request.getRequestDispatcher("addOrder-1.jsp").forward(request, response);
+            }
     }
 
     /**
