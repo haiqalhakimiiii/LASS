@@ -66,7 +66,7 @@
 
 <body>
 
-   <%@include file="StaffNavbar.jsp"%>
+    <jsp:include page="StaffNavbar.jsp" />
 
   <main id="main" class="main">
 

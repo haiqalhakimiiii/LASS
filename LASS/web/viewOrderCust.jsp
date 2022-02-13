@@ -35,7 +35,7 @@
 
     <body>
         
-        <header><%@include file="CustNavbar.jsp"%></header>
+        <header><jsp:include page="StaffNavbar.jsp" /></header>
 
         <main id="main" class="main">
 
