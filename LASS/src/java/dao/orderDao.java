@@ -46,7 +46,7 @@ public class orderDao {
             
             int i = pstmt.executeUpdate();
             
-            PreparedStatement pstmt2 = conn.prepareStatement("INSERT INTO PAYMENT (TOTALPRICE,DEPOSIT,DATEPAYMENT) VALUES (NULL,NULL,NULL)");
+            PreparedStatement pstmt2 = conn.prepareStatement("INSERT INTO PAYMENT (TOTALPRICE,DEPOSIT,DATEPAYMENT) VALUES (0,0,CURRENT_DATE())");
             int j = pstmt2.executeUpdate();
             if(i>0 && j>0){
                 return "SUCCESS";

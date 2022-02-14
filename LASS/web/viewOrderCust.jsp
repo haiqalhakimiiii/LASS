@@ -72,7 +72,14 @@
                                             try {
                                                 connection = DriverManager.getConnection(url, username, password);
                                                 statement = connection.createStatement();
-                                                String sql = "SELECT r.statusDate, s.statusDescription, r.jobID, c.custID, c.custPhone, r.dateSendDevice, r.staffID, r.serialNum, r.paymentID FROM repair_job r JOIN status s ON r.statusID = s.statusID JOIN customer c ON r.custID = c.custID";
+                                                //To get custID
+                                                String custPhone = (String) session.getAttribute("custPhone");
+                                                String sqlCustID = "SELECT * FROM CUSTOMER WHERE CUSTPHONE LIKE '%"+custPhone+"%'";
+                                                resultSet = statement.executeQuery(sqlCustID);
+                                                resultSet.next();
+                                                String custID = resultSet.getString("custID");
+                                                
+                                                String sql = "SELECT r.statusDate, s.statusDescription, r.jobID, c.custID, c.custPhone, r.dateSendDevice, r.staffID, r.serialNum, r.paymentID FROM repair_job r JOIN status s ON r.statusID = s.statusID JOIN customer c ON r.custID = c.custID WHERE r.custID="+custID;
                                                 resultSet = statement.executeQuery(sql);
                                                 int i = 0;
                                                 while (resultSet.next()) {

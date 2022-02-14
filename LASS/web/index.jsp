@@ -47,12 +47,6 @@
     </style>
     <body>
        <%@include file="HomeNavbar.jsp"%>
-       
-       
-       
-        <%@include file="HomeNavbar.jsp"%>
-
-
         <main id="main" class="main">
 
             <div class="pagetitle">
