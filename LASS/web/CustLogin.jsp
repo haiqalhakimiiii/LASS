@@ -2,9 +2,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
     <head>
-        <meta charset="utf-8">
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -31,72 +31,94 @@
 
         <!-- Template Main CSS File -->
         <link href="assets/css/style.css" rel="stylesheet">
-        <style>
-            .div{
-                width: 530px;
-                height: 90px;  
-                padding: 30px;
-            }
-            .card{
-                width: 30%;
-                height: 45%;
-                position: fixed;
-                top: 25%;
-                left: 35%;
-                margin-top: 1px;
-                margin-left: 10px;
-                align-content: center;
-            }
-            .form-control{
-                width: 50%;
-                text-align: right;
-            }
-            input {
-                display:block;
-                margin:0 auto;
-            }
-        </style>
-        <title>Training Management System</title>
-        <script
-            src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous"></script>
-        <script type="text/javascript" 
-        src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.min.js"></script>
+
+        <!-- =======================================================
+        * Template Name: NiceAdmin - v2.2.2
+        * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+        * Author: BootstrapMade.com
+        * License: https://bootstrapmade.com/license/
+        ======================================================== -->
     </head>
+
     <body>
 
-        <%@include file="HomeNavbar.jsp"%>
-        <div class="absoluteCenter">
+        <main>
+            <%@include file="HomeNavbar.jsp"%>
+            <div class="container">
 
-            <div style="text-align: center"><br><br><br><br><br>
-                <h1>Login</h1><br>
-                <div class="div2">
-                    <div class="card">
-                        <div class="card-body">
-                            <form action="CustLoginServlet" method="post" id="loginForm">
-                                <br><label for="email">Phone Number:</label><br><br>
-                                <input type= "text" style="text-align: center" class="form-control" name="custPhone" size="30" required />
-                                <br>
-                                <label for="password">Password:</label><br><br>
-                                <input type="password"  style="text-align: center" class="form-control" name="custPassword" size="30" required />
-                                <br>${message}<br>		
-                                <button type="submit" class="btn btn-primary">Login</button><br><br>
-                                <a href="index.jsp">Back to Home</a>
-                            </form>
+                <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+
+                                <div class="d-flex justify-content-center py-4">
+                                    <a href="index.jsp" class="logo d-flex align-items-center w-auto">
+                           
+                                        <span class="d-none d-lg-block">Man Laptop</span>
+                                    </a>
+                                </div><!-- End Logo -->
+
+                                <div class="card mb-3">
+
+                                    <div class="card-body">
+
+                                        <div class="pt-4 pb-2">
+                                            <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
+                                            <p class="text-center small">Enter your phone number & password to login</p>
+                                        </div>
+
+                                        <form class="row g-3 needs-validation" action="CustLoginServlet" method="post" id="loginForm" novalidate>
+
+                                            <div class="col-12">
+                                                <label for="yourUsername" class="form-label">Phone Number</label>
+                                                <div class="input-group has-validation">
+                                                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+                                                    <input type="text"name="custPhone"  required class="form-control" id="yourUsername" required>
+                                                    <div class="invalid-feedback">Please enter your Phone Number.</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <label for="yourPassword" class="form-label">Password</label>
+                                                <input type="password" name="custPassword"  required class="form-control" id="yourPassword" required>
+                                                       <div class="invalid-feedback">Please enter your password!</div>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
+                                                    <label class="form-check-label" for="rememberMe">Remember me</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <button class="btn btn-primary w-100" type="submit">Login</button>
+                                            </div>
+                                            <div class="col-12">
+                                                <p class="small mb-0">Don't have account? <a href="CustRegister.jsp">Create an account</a></p>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+
+                                <div class="credits">
+                                    <!-- All the links in the footer should remain intact. -->
+                                    <!-- You can delete the links only if you purchased the pro version. -->
+                                    <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                                    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+                                    
+                                </div>
+
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                </body>
+                </section>
 
+            </div>
+        </main><!-- End #main -->
 
-                <script type="text/javascript"></script>
+      
+    </body>
 
-
-
-
-
-
-
-                </html>
+</html>
