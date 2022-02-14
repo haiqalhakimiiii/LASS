@@ -205,34 +205,30 @@
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label"></label>
+                  <label for="inputText" class="col-sm-2 col-form-label">Customer ID</label>
                   <div class="col-sm-10">
-                    <%
+                      <%
                         try{
-                          
                         connection = DriverManager.getConnection(url, username, password);
                         statement=connection.createStatement();
-                        String custPhone = (String) session.getAttribute("custPhone");
-                        
-                        String sql = "SELECT * FROM CUSTOMER WHERE CUSTPHONE LIKE '%"+custPhone+"%'";
+                        String custPhone = (String)session.getAttribute("custPhone");
+                        String sql ="SELECT * FROM CUSTOMER WHERE CUSTPHONE="+custPhone;
                         resultSet = statement.executeQuery(sql);
-                        int i=0;
-                        
-                        while(resultSet.next()){
-                            
-                    %>  
-                        <input type="hidden" name="customerID" value="<%=resultSet.getString("custID")%>" >
-                    <%
-                        i++;
-                        }
+                        int custID = Integer.parseInt(resultSet.getString("custID")); 
+                      %>
+                        <input type="text" name="custID" value="<%=custID%>" disabled>
+                      <%
                         connection.close();
-                        } catch (Exception e) {
-                        e.printStackTrace();
+                        }catch (Exception e) {
+                          e.printStackTrace();
                         }
-                    %> 
+                    %>
                   </div>
                 </div>
-                       
+                  
+                  
+           
+               
                 <div class="row mb-3">
                   <label class="col-sm-2 col-form-label"></label>
                   <div class="col-sm-10">

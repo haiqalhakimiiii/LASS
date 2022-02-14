@@ -54,7 +54,7 @@
                 <i class="bi bi-list toggle-sidebar-btn"></i>
             </div><!-- End Logo -->
 
-            
+
 
 
         </header><!-- End Header -->
@@ -70,6 +70,16 @@
                         <span>Home</span>
                     </a>
                 </li><!-- End Dashboard Nav -->
+<<<<<<< HEAD
+
+                <li class="nav-heading">Pages</li> 
+                <li class="nav-item">
+                    <a class="nav-link " href="Contact.jsp">
+                        <i class="bi bi-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                </li><!-- End Contact Page Nav -->
+=======
                 <li class="nav-heading">Pages</li>
                 
                 <li class="nav-item">
@@ -103,6 +113,7 @@
         </ul>
       </li><!-- End Device Nav -->
                 
+
         </aside><!-- End Sidebar-->
     </tbody>
 </table>

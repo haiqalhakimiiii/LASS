@@ -167,18 +167,7 @@
                         try{
                         connection = DriverManager.getConnection(url, username, password);
                         statement=connection.createStatement();
-                        
-                        //To get custID
-                        String custPhone = (String) session.getAttribute("custPhone");
-                        String sqlCustID = "SELECT * FROM CUSTOMER WHERE CUSTPHONE LIKE '%"+custPhone+"%'";
-                        resultSet = statement.executeQuery(sqlCustID);
-                        resultSet.next();
-                        String custID = resultSet.getString("custID");
-                        
-                                
-                        
-                        //TO GET LIST OF DEVICE
-                        String sql ="SELECT * FROM DEVICE WHERE CUSTID="+custID;
+                        String sql ="SELECT * FROM DEVICE WHERE CUSTID='1'";
                         resultSet = statement.executeQuery(sql);
                         int i=0;
                         while(resultSet.next()){

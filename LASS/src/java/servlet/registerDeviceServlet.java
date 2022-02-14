@@ -37,14 +37,12 @@ public class registerDeviceServlet extends HttpServlet {
         //processRequest(request, response);
         PrintWriter out = response.getWriter();
         
-        
         String serialNum = request.getParameter("serialNum");
         String brand = request.getParameter("brand");
         String model = request.getParameter("model");
         String typeName = request.getParameter("typeName");
         String color = request.getParameter("color");
-        
-        int custID = Integer.parseInt(request.getParameter("customerID"));
+        int custID = Integer.parseInt(request.getParameter("custID"));
         
         deviceBean device = new deviceBean();
         deviceDAO devicedao = new deviceDAO();
