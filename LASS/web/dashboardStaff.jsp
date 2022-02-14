@@ -1,14 +1,4 @@
 <!DOCTYPE html>
-<%
-            if (session != null) {
-               if (session.getAttribute("staffUsername") != null) {
-                  String name = (String) session.getAttribute("staffUsername");
-                  out.print("Hello, " + name + ".  Welcome!");
-               } else {
-                  response.sendRedirect("StaffLogin.jsp");
-               }
-            }
-        %>
 <html lang="en">
 
     <head>

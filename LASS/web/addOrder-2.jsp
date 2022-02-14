@@ -160,16 +160,36 @@
             <div class="card-body">
               <h5 class="card-title">Add Order Form</h5>
               <%
-                String custID = "";
-                String custName = "";
                 String serialNum = request.getParameter("serialNum");
+                System.out.println(serialNum);
               %>
               <!-- General Form Elements -->
-              <form action="addOrderServlet" method="POST">
+              <form action="addOrderServlets" method="POST">
                 <div class="row mb-3">
                 <label for="custID" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="custID" value="<%=custID+" - "+custName%>" disabled>
+                    <%
+                    try{
+                        connection = DriverManager.getConnection(url, username, password);
+                        statement=connection.createStatement();
+                        
+                        //To get custID
+                        String custPhone = (String) session.getAttribute("custPhone");
+                        String sqlCustID = "SELECT * FROM CUSTOMER WHERE CUSTPHONE LIKE '%"+custPhone+"%'";
+                        resultSet = statement.executeQuery(sqlCustID);
+                        resultSet.next();
+                        String custID = resultSet.getString("custID");
+                        String custName = resultSet.getString("custName");
+                    %>
+                    <input type="text" class="form-control" name="custName" value="<%=custName%>" disabled>
+                    <input type="hidden" name="custID" value="<%=custID%>">
+                    <input type="hidden" name="serialNumber" value="<%=serialNum%>">
+                    <%
+                        connection.close();
+                        } catch (Exception e) {
+                        e.printStackTrace();
+                        }
+                    %>
                 </div>
               </div>
                 <div class="row mb-3">

@@ -70,7 +70,7 @@ pageEncoding="utf-8"%>
                                <form class="row g-3 needs-validation" action="StaffLoginServlet" method="post" id="loginForm" novalidate>
 
                                    <div class="col-12">
-                                       <label for="yourUsername" class="form-label">Staff Username</label>
+                                       <label for="yourUsername" class="form-label">Staff Usename</label>
                                        <div class="input-group has-validation">
                                            <span class="input-group-text" id="inputGroupPrepend">@</span>
                                            <input type="text"name="staffUsername"  required class="form-control" id="yourUsername" required>
@@ -84,6 +84,12 @@ pageEncoding="utf-8"%>
                                               <div class="invalid-feedback">Please enter your password!</div>
                                    </div>
 
+                                   <div class="col-12">
+                                       <div class="form-check">
+                                           <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
+                                           <label class="form-check-label" for="rememberMe">Remember me</label>
+                                       </div>
+                                   </div>
                                    <div class="col-12">
                                        <button class="btn btn-primary w-100" type="submit">Login</button>
                                    </div>

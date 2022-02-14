@@ -7,6 +7,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <file>file:/C:/Users/Acer/OneDrive/CS266/Part%204/ISP551/Project/LASS/LASS/web/StaffLogin.jsp</file>
             <file>file:/C:/Users/Acer/OneDrive/CS266/Part%204/ISP551/Project/LASS/LASS/web/StaffNavbar.jsp</file>
             <file>file:/C:/Users/Acer/OneDrive/CS266/Part%204/ISP551/Project/LASS/LASS/web/viewOrderCust.jsp</file>
@@ -64,6 +65,15 @@
             <file>file:/C:/Users/Acer/OneDrive/CS266/Part%204/ISP551/Project/LASS/LASS/src/java/servlet/orderServlet.java</file>
             <file>file:/C:/Users/Acer/OneDrive/CS266/Part%204/ISP551/Project/LASS/LASS/web/viewOrderStaff.jsp</file>
 >>>>>>> parent of 86ee981 (Update private.xml)
+=======
+            <file>file:/G:/My%20Drive/CS266/Semester%204/ISP551/LASS/LASS/src/java/dao/orderDao.java</file>
+            <file>file:/G:/My%20Drive/CS266/Semester%204/ISP551/LASS/LASS/src/java/servlet/addOrderServlets.java</file>
+            <file>file:/G:/My%20Drive/CS266/Semester%204/ISP551/LASS/LASS/web/addOrder-1.jsp</file>
+            <file>file:/G:/My%20Drive/CS266/Semester%204/ISP551/LASS/LASS/web/addOrder-2.jsp</file>
+            <file>file:/G:/My%20Drive/CS266/Semester%204/ISP551/LASS/LASS/web/registerDeviceForm.jsp</file>
+            <file>file:/G:/My%20Drive/CS266/Semester%204/ISP551/LASS/LASS/web/viewOrderCust.jsp</file>
+            <file>file:/G:/My%20Drive/CS266/Semester%204/ISP551/LASS/LASS/web/WEB-INF/web.xml</file>
+>>>>>>> parent of 8a640cd (Merge branch 'main' of https://github.com/haiqalhakimiiii/LASS)
         </group>
     </open-files>
 </project-private>

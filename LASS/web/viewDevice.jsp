@@ -29,7 +29,7 @@
 
     <head>
        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <title>Order </title>
+        <title>Device</title>
     
     </head>
 
@@ -40,7 +40,7 @@
         <main id="main" class="main">
 
             <div class="pagetitle">
-                <h1>List of Orders</h1>
+                <h1>List of Devices</h1>
 
             </div><!-- End Page Title -->
 
@@ -55,13 +55,11 @@
                                 <table class="table datatable">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Job ID</th>
                                             <th scope="col">Serial Number</th>
-                                            <th scope="col">Date Send Device</th>
-                                            <th scope="col">Status Date</th>
-                                            <th scope="col">Status</th>
-                                            <th scope="col">Payment ID</th>
-                                            <th scope="col">Action</th>
+                                            <th scope="col">Brand</th>
+                                            <th scope="col">Model</th>
+                                            <th scope="col">Color</th>
+                                            <th scope="col">Type</th>
                                         </tr>
                                     </thead>
 
@@ -72,19 +70,18 @@
                                             try {
                                                 connection = DriverManager.getConnection(url, username, password);
                                                 statement = connection.createStatement();
-                                                String sql = "SELECT r.statusDate, s.statusDescription, r.jobID, c.custID, c.custPhone, r.dateSendDevice, r.staffID, r.serialNum, r.paymentID FROM repair_job r JOIN status s ON r.statusID = s.statusID JOIN customer c ON r.custID = c.custID";
+                                                int custID = (Integer)session.getAttribute ("custID");
+                                                String sql = "SELECT * FROM device where custID = " + custID;
                                                 resultSet = statement.executeQuery(sql);
                                                 int i = 0;
                                                 while (resultSet.next()) {
                                         %>
                                         <tr>
-                                            <th scope="row"><%=resultSet.getString("r.jobID")%></th>
-                                            <td><%=resultSet.getString("r.serialNum")%></td>
-                                            <td><%=resultSet.getString("r.dateSendDevice")%></td>
-                                            <td><%=resultSet.getString("r.statusDate")%></td>
-                                            <td><%=resultSet.getString("s.statusDescription")%></td>
-                                            <td><%=resultSet.getString("r.paymentID")%></td>
-                                            <td><a href="orderDetailsCust.jsp?job_id=<%=resultSet.getString("r.jobID")%>"><button type="button" class="btn btn-primary">Details</button></a></td>
+                                            <th scope="row"><%=resultSet.getString("serialNum")%></th>
+                                            <td><%=resultSet.getString("brand")%></td>
+                                            <td><%=resultSet.getString("model")%></td>
+                                            <td><%=resultSet.getString("color")%></td>
+                                            <td><%=resultSet.getString("typeName")%></td>
                                         </tr>
 
                                         <%

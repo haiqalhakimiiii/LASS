@@ -54,7 +54,7 @@
                 <i class="bi bi-list toggle-sidebar-btn"></i>
             </div><!-- End Logo -->
 
-
+            
 
 
         </header><!-- End Header -->
@@ -70,6 +70,7 @@
                         <span>Home</span>
                     </a>
                 </li><!-- End Dashboard Nav -->
+<<<<<<< HEAD
 
                 <li class="nav-heading">Pages</li> 
                 <li class="nav-item">
@@ -106,6 +107,41 @@
 
 
 
+=======
+                <li class="nav-heading">Pages</li>
+                
+                <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#orders-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Customer</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="orders-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="CustLogin.jsp">
+                <i class="bi bi-circle"></i><span>Customer Login</span>
+            </a>
+          </li>
+          <li>
+            <a href="CustRegister.jsp">
+                <i class="bi bi-circle"></i><span>Customer Sign Up</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Order Nav -->
+      
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#device-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Staff</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="device-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="StaffLogin.jsp">
+                <i class="bi bi-circle"></i><span>Staff Login</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Device Nav -->
+                
+>>>>>>> parent of 8a640cd (Merge branch 'main' of https://github.com/haiqalhakimiiii/LASS)
         </aside><!-- End Sidebar-->
     </tbody>
 </table>
