@@ -65,8 +65,8 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top d-flex align-items-center">
-        <jsp:include page="CustNavbar.jsp" />
+  <header>
+        <jsp:include page="CustNavbar.jsp"/>
   </header><!-- End Header -->
 
   
