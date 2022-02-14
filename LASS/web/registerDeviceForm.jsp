@@ -11,6 +11,25 @@
             response.sendRedirect("CustLogin.jsp");
         }
     }
+    Connection conn = null;
+        String url = "jdbc:mysql://localhost:3306/lass";
+        String username = "root";
+        String password = "";
+        try{
+            Class.forName("com.mysql.jdbc.Driver");   
+        }
+        catch(ClassNotFoundException e){
+            e.printStackTrace();
+        }
+        try {
+            conn = DriverManager.getConnection(url,username,password);
+             System.out.println("Printing connection object" + conn);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,12 +73,8 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top d-flex align-items-center">
-
-    <%@include file="CustNavbar.jsp"%>
-
-
-  </header><!-- End Header -->
+  <header><jsp:include page="CustNavbar.jsp" /></header>
+  <!-- End Header -->
 
   
 
