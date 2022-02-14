@@ -54,7 +54,7 @@
                 <i class="bi bi-list toggle-sidebar-btn"></i>
             </div><!-- End Logo -->
 
-            
+
 
 
         </header><!-- End Header -->
@@ -70,7 +70,14 @@
                         <span>Home</span>
                     </a>
                 </li><!-- End Dashboard Nav -->
+
                 <li class="nav-heading">Pages</li> 
+                <li class="nav-item">
+                    <a class="nav-link " href="Contact.jsp">
+                        <i class="bi bi-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                </li><!-- End Contact Page Nav -->
                 <li class="nav-item">
                     <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
                         <i class="bi bi-menu-button-wide"></i><span>Login</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -85,11 +92,11 @@
                                             <i class="bi bi-circle"></i><span>Staff Login</span>
                                         </a>
                                 </li>
-                                   <li>
-                            <a href="CustRegister.jsp">
-                                <i class="bi bi-circle"></i><span>Sign Up</span>
-                            </a>
-                        </li>
+                                <li>
+                                    <a href="CustRegister.jsp">
+                                        <i class="bi bi-circle"></i><span>Sign Up</span>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
 
@@ -97,7 +104,7 @@
                 </li><!-- End Order Nav -->
 
 
-        
+
 
         </aside><!-- End Sidebar-->
     </tbody>
