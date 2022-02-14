@@ -70,16 +70,6 @@
                         <span>Home</span>
                     </a>
                 </li><!-- End Dashboard Nav -->
-<<<<<<< HEAD
-
-                <li class="nav-heading">Pages</li> 
-                <li class="nav-item">
-                    <a class="nav-link " href="Contact.jsp">
-                        <i class="bi bi-envelope"></i>
-                        <span>Contact</span>
-                    </a>
-                </li><!-- End Contact Page Nav -->
-=======
                 <li class="nav-heading">Pages</li>
                 
                 <li class="nav-item">
@@ -112,7 +102,12 @@
           </li>
         </ul>
       </li><!-- End Device Nav -->
-                
+       <li class="nav-item">
+                    <a class="nav-link " href="Contact.jsp">
+                        <i class="bi bi-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                </li><!-- End Contact Page Nav -->         
 
         </aside><!-- End Sidebar-->
     </tbody>
