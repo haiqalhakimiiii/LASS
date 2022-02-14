@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2022 at 02:31 PM
+-- Generation Time: Feb 14, 2022 at 10:10 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -38,6 +38,13 @@ CREATE TABLE `customer` (
   `registerDate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`custID`, `custPhone`, `custName`, `custUsername`, `custPassword`, `custAddress`, `custEmail`, `registerDate`) VALUES
+(1, 'asd', 'ali', 'asd', 'asd', 'asd', 'asd', '2022-02-12');
+
 -- --------------------------------------------------------
 
 --
@@ -53,6 +60,15 @@ CREATE TABLE `device` (
   `custID` int(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `device`
+--
+
+INSERT INTO `device` (`serialNum`, `brand`, `model`, `typeName`, `color`, `custID`) VALUES
+('asd', 'asd', 'asd', 'asd', 'asd', 1),
+('qwe', 'qwe', 'qwe', 'Printer', 'qwe', 1),
+('zxc', 'zxc', 'zxc', 'zxc', 'zxc', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -62,9 +78,17 @@ CREATE TABLE `device` (
 CREATE TABLE `payment` (
   `paymentID` int(11) NOT NULL,
   `totalPrice` float DEFAULT NULL,
-  `deposit` float NOT NULL,
-  `datePayment` date NOT NULL
+  `deposit` float DEFAULT NULL,
+  `datePayment` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `payment`
+--
+
+INSERT INTO `payment` (`paymentID`, `totalPrice`, `deposit`, `datePayment`) VALUES
+(1, NULL, NULL, NULL),
+(2, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -75,7 +99,7 @@ CREATE TABLE `payment` (
 CREATE TABLE `repair_job` (
   `jobID` int(30) NOT NULL,
   `dateSendDevice` date NOT NULL,
-  `trackingNum` varchar(30) NOT NULL,
+  `trackingNum` varchar(30) DEFAULT NULL,
   `problem` varchar(150) NOT NULL,
   `statusDate` date NOT NULL,
   `staffID` int(11) DEFAULT NULL,
@@ -84,6 +108,14 @@ CREATE TABLE `repair_job` (
   `paymentID` int(30) NOT NULL,
   `custID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `repair_job`
+--
+
+INSERT INTO `repair_job` (`jobID`, `dateSendDevice`, `trackingNum`, `problem`, `statusDate`, `staffID`, `statusID`, `serialNum`, `paymentID`, `custID`) VALUES
+(1, '2022-02-14', 'qwe', 'qwe', '2022-02-14', NULL, 1, 'qwe', 1, 1),
+(2, '2022-02-14', 'zxc', 'zxc', '2022-02-14', NULL, 1, 'zxc', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -148,8 +180,8 @@ ALTER TABLE `repair_job`
   ADD KEY `paymentID_fk` (`paymentID`),
   ADD KEY `serialNum_fk` (`serialNum`),
   ADD KEY `staffID_fk` (`staffID`),
-  ADD KEY `statusID_fk` (`statusID`),
-  ADD KEY `fk_custID` (`custID`);
+  ADD KEY `fk_custID` (`custID`),
+  ADD KEY `statusID` (`statusID`);
 
 --
 -- Indexes for table `staff`
@@ -171,19 +203,19 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `custID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `custID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `paymentID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `paymentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `repair_job`
 --
 ALTER TABLE `repair_job`
-  MODIFY `jobID` int(30) NOT NULL AUTO_INCREMENT;
+  MODIFY `jobID` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `staff`
@@ -206,10 +238,9 @@ ALTER TABLE `device`
 --
 ALTER TABLE `repair_job`
   ADD CONSTRAINT `fk_custID` FOREIGN KEY (`custID`) REFERENCES `customer` (`custID`),
-  ADD CONSTRAINT `paymentID_fk` FOREIGN KEY (`paymentID`) REFERENCES `payment` (`paymentID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `serialNum_fk` FOREIGN KEY (`serialNum`) REFERENCES `device` (`serialNum`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `staffID_fk` FOREIGN KEY (`staffID`) REFERENCES `staff` (`staffID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `statusID_fk` FOREIGN KEY (`statusID`) REFERENCES `status` (`statusID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `statusID_fk` FOREIGN KEY (`statusID`) REFERENCES `status` (`statusID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

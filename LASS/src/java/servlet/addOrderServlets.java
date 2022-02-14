@@ -18,17 +18,24 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author hakim
  */
-public class addOrderServlet extends HttpServlet {
+public class addOrderServlets extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-
+        PrintWriter out = response.getWriter();
         String date = request.getParameter("dateSendDevice");
         String problem = request.getParameter("problem");
         String trackingNum = request.getParameter("trackingNum");
-        String serialNum = request.getParameter("serialNum");
+        String serialNum = request.getParameter("serialNumber");
         int custID = Integer.parseInt(request.getParameter("custID"));
         int statusID = 1;
+        
+        System.out.println(date);
+        System.out.println(trackingNum);
+        System.out.println(problem);
+        System.out.println(serialNum);
+        System.out.println(statusID);
+        System.out.println(custID);
         
         orderBean order = new orderBean();
         orderDao orderdao = new orderDao();
@@ -41,7 +48,7 @@ public class addOrderServlet extends HttpServlet {
         order.setstatusID(statusID);
         
         String addOrder = orderdao.addOrder(order);
-        
+        out.println(addOrder);
         if(addOrder.equals("SUCCESS")){
             request.getRequestDispatcher("viewOrderCust.jsp").forward(request,response);
         }

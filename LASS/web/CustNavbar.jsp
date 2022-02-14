@@ -84,7 +84,7 @@
                         connection = DriverManager.getConnection(url, username, password);
                         statement=connection.createStatement();
                         String custPhone = (String) session.getAttribute("custPhone");
-                        String sql ="SELECT * FROM CUSTOMER WHERE CUSTPHONE="+custPhone;
+                        String sql ="SELECT * FROM CUSTOMER WHERE CUSTPHONE LIKE '"+custPhone+"'";
                         resultSet = statement.executeQuery(sql);
                         int i=0;
                         while(resultSet.next()){

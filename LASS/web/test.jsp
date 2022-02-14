@@ -58,27 +58,26 @@
             }
         %>
         <%
-            String custPhone = (String) session.getAttribute("custPhone");
-            out.print("Hello, " + custPhone + ".  Welcome!");
-            //String custPhone2 = (String) request.getAttribute("custPhone");
+            
         
                         try{
-                            out.print(custPhone + ".  Welcome!");
+                          
                         connection = DriverManager.getConnection(url, username, password);
                         statement=connection.createStatement();
-                        //String custPhone = (String) session.getAttribute("custPhone");
+                        String custPhone = (String) session.getAttribute("custPhone");
                         
                         String sql = "SELECT * FROM CUSTOMER WHERE CUSTPHONE LIKE '%"+custPhone+"%'";
                         resultSet = statement.executeQuery(sql);
                         int i=0;
-                        
-                        while(resultSet.next()){
+                        resultSet.next();
+                        String custID = resultSet.getString("custID");
+                        //while(resultSet.next()){
                     %>
-                    <p><%=custPhone%></p>
-                    <p><%=resultSet.getString("custName")%></p>
+                    <p><%=custID%></p>
+                    
                     <%
                         i++;
-                        }
+                        
                         connection.close();
                         } catch (Exception e) {
                         e.printStackTrace();
