@@ -2,7 +2,27 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
+<%
+    Connection conn = null;
+    String url = "jdbc:mysql://localhost:3306/lass";
+    String username = "root";
+    String password = "";
+    try {
+        Class.forName("com.mysql.jdbc.Driver");
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+    try {
+        conn = DriverManager.getConnection(url, username, password);
+        System.out.println("Printing connection object" + conn);
+    } catch (Exception ex) {
+        ex.printStackTrace();
+    }
 
+    Connection connection = null;
+    Statement statement = null;
+    ResultSet resultSet = null;
+%> 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,7 +76,26 @@
 
             <nav class="header-nav ms-auto">
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <span class="d-none d-md-block dropdown-toggle ps-2">Naqib</span>
+                    
+                    <%
+                        try{
+                        connection = DriverManager.getConnection(url, username, password);
+                        statement=connection.createStatement();
+                        String staffUsername = (String) session.getAttribute("staffUsername");
+                        String sql ="SELECT * FROM STAFF WHERE STAFFUSERNAME LIKE '"+staffUsername+"'";
+                        resultSet = statement.executeQuery(sql);
+                        int i=0;
+                        while(resultSet.next()){
+                    %>
+                    <span class="d-none d-md-block dropdown-toggle ps-2"><%=resultSet.getString("staffName")%></span>
+                    <%
+                        i++;
+                        }
+                        connection.close();
+                        } catch (Exception e) {
+                        e.printStackTrace();
+                        }
+                    %>
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
 
