@@ -216,25 +216,10 @@
                         String custPhone = (String)session.getAttribute("custPhone");
                         String sql ="SELECT * FROM CUSTOMER WHERE CUSTPHONE LIKE '%"+custPhone+"'";
                         resultSet = statement.executeQuery(sql);
-                        
                       %>
-                        <input type="hidden" name="custID" value="<%=resultSet.getString("custID")%>">
-                      <%
-
-                        //String custPhone = (String) session.getAttribute("custPhone");
                         
-                        //String sql = "SELECT * FROM CUSTOMER WHERE CUSTPHONE LIKE '%"+custPhone+"%'";
-                        resultSet = statement.executeQuery(sql);
-                        int i=0;
-                        
-                        while(resultSet.next()){
-                            
-                    %>  
                         <input type="hidden" name="customerID" value="<%=resultSet.getString("custID")%>" >
                     <%
-                        i++;
-                        }
-
                         connection.close();
                         } catch (Exception e) {
                         e.printStackTrace();
