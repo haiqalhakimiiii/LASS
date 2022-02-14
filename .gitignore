@@ -1,3 +1,4 @@
 /LASS/build/
 *.xml
 LASS/web/CustNavbar.jsp
+/LASS/dist/
