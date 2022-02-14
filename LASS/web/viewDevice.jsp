@@ -35,7 +35,7 @@
 
     <body>
         
-        <header><jsp:include page="StaffNavbar.jsp" /></header>
+        <header><jsp:include page="CustNavbar.jsp" /></header>
 
         <main id="main" class="main">
 
@@ -70,7 +70,15 @@
                                             try {
                                                 connection = DriverManager.getConnection(url, username, password);
                                                 statement = connection.createStatement();
-                                                int custID = (Integer)session.getAttribute ("custID");
+                                                
+                                                //To get custID
+                                                String custPhone = (String) session.getAttribute("custPhone");
+                                                String sqlCustID = "SELECT * FROM CUSTOMER WHERE CUSTPHONE LIKE '%"+custPhone+"%'";
+                                                resultSet = statement.executeQuery(sqlCustID);
+                                                resultSet.next();
+                                                String custID = resultSet.getString("custID");
+                                                
+                                                //int custID = (Integer)session.getAttribute ("custID");
                                                 String sql = "SELECT * FROM device where custID = " + custID;
                                                 resultSet = statement.executeQuery(sql);
                                                 int i = 0;
