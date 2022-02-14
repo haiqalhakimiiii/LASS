@@ -72,7 +72,6 @@
                                             <div class="col-12">
                                                 <label for="yourUsername" class="form-label">Phone Number</label>
                                                 <div class="input-group has-validation">
-                                                    <span class="input-group-text" id="inputGroupPrepend">@</span>
                                                     <input type="text"name="custPhone"  required class="form-control" id="yourUsername" required>
                                                     <div class="invalid-feedback">Please enter your Phone Number.</div>
                                                 </div>
