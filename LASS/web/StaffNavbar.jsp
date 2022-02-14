@@ -133,11 +133,6 @@
                     </a>
                     <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                         <li>
-                            <a href="">
-                                <i class="bi bi-circle"></i><span>Add Order</span>
-                            </a>
-                        </li>
-                        <li>
                             <a href="viewOrderStaff.jsp">
                                 <i class="bi bi-circle"></i><span>View Order</span>
                             </a>
