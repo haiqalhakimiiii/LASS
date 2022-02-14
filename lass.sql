@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2022 at 10:10 AM
+-- Generation Time: Feb 14, 2022 at 09:36 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -38,13 +38,6 @@ CREATE TABLE `customer` (
   `registerDate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `customer`
---
-
-INSERT INTO `customer` (`custID`, `custPhone`, `custName`, `custUsername`, `custPassword`, `custAddress`, `custEmail`, `registerDate`) VALUES
-(1, 'asd', 'ali', 'asd', 'asd', 'asd', 'asd', '2022-02-12');
-
 -- --------------------------------------------------------
 
 --
@@ -60,15 +53,6 @@ CREATE TABLE `device` (
   `custID` int(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `device`
---
-
-INSERT INTO `device` (`serialNum`, `brand`, `model`, `typeName`, `color`, `custID`) VALUES
-('asd', 'asd', 'asd', 'asd', 'asd', 1),
-('qwe', 'qwe', 'qwe', 'Printer', 'qwe', 1),
-('zxc', 'zxc', 'zxc', 'zxc', 'zxc', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -81,14 +65,6 @@ CREATE TABLE `payment` (
   `deposit` float DEFAULT NULL,
   `datePayment` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `payment`
---
-
-INSERT INTO `payment` (`paymentID`, `totalPrice`, `deposit`, `datePayment`) VALUES
-(1, NULL, NULL, NULL),
-(2, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -109,14 +85,6 @@ CREATE TABLE `repair_job` (
   `custID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `repair_job`
---
-
-INSERT INTO `repair_job` (`jobID`, `dateSendDevice`, `trackingNum`, `problem`, `statusDate`, `staffID`, `statusID`, `serialNum`, `paymentID`, `custID`) VALUES
-(1, '2022-02-14', 'qwe', 'qwe', '2022-02-14', NULL, 1, 'qwe', 1, 1),
-(2, '2022-02-14', 'zxc', 'zxc', '2022-02-14', NULL, 1, 'zxc', 2, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -130,6 +98,13 @@ CREATE TABLE `staff` (
   `staffPassword` varchar(20) NOT NULL,
   `staffPhone` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `staff`
+--
+
+INSERT INTO `staff` (`staffID`, `staffName`, `staffUsername`, `staffPassword`, `staffPhone`) VALUES
+(1, 'unassigned', 'unassigned', 'unassigned', 'unassigned');
 
 -- --------------------------------------------------------
 
@@ -147,7 +122,9 @@ CREATE TABLE `status` (
 --
 
 INSERT INTO `status` (`statusID`, `statusDescription`) VALUES
-(1, 'Processing');
+(1, 'Troubleshooting'),
+(2, 'Repairing'),
+(3, 'Completed');
 
 --
 -- Indexes for dumped tables
@@ -203,25 +180,25 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `custID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `custID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `paymentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `paymentID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `repair_job`
 --
 ALTER TABLE `repair_job`
-  MODIFY `jobID` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `jobID` int(30) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `staffID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `staffID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
