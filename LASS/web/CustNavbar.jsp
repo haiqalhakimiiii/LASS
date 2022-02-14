@@ -135,11 +135,6 @@
         </a>
         <ul id="orders-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="addOrder-1.jsp">
-              <i class="bi bi-circle"></i><span>Add Order</span>
-            </a>
-          </li>
-          <li>
             <a href="viewOrderCust.jsp">
               <i class="bi bi-circle"></i><span>View Order</span>
             </a>
