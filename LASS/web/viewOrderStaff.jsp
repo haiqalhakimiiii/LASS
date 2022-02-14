@@ -106,7 +106,7 @@
 try{
 connection = DriverManager.getConnection(url, username, password);
 statement=connection.createStatement();
-String sql ="SELECT r.statusDate, s.statusDescription, r.jobID, c.custID, c.custPhone, r.dateSendDevice, r.staffID, r.serialNum, r.paymentID FROM repair_job r JOIN status s ON r.statusID = s.statusID JOIN customer c ON r.custID = c.custID";
+String sql ="SELECT r.statusDate, s.statusDescription, r.jobID, c.custID, c.custPhone, r.dateSendDevice, t.staffName, r.serialNum, r.paymentID FROM repair_job r JOIN status s ON r.statusID = s.statusID JOIN customer c ON r.custID = c.custID JOIN staff t ON r.staffID = t.staffID";
 resultSet = statement.executeQuery(sql);
 int i=0;
 while(resultSet.next()){
@@ -116,7 +116,7 @@ while(resultSet.next()){
                     <td><%=resultSet.getString("c.custID") %></td>
                     <td><%=resultSet.getString("c.custPhone") %></td>
                     <td><%=resultSet.getString("r.serialNum") %></td>
-                    <td><%=resultSet.getString("r.staffID") %></td>
+                    <td><%=resultSet.getString("t.staffName") %></td>
                     <td><%=resultSet.getString("r.dateSendDevice") %></td>
                     <td><%=resultSet.getString("r.statusDate") %></td>
                     <td><%=resultSet.getString("s.statusDescription") %></td>
