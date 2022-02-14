@@ -70,44 +70,7 @@
                         <span>Home</span>
                     </a>
                 </li><!-- End Dashboard Nav -->
-<<<<<<< HEAD
 
-                <li class="nav-heading">Pages</li> 
-                <li class="nav-item">
-                    <a class="nav-link " href="Contact.jsp">
-                        <i class="bi bi-envelope"></i>
-                        <span>Contact</span>
-                    </a>
-                </li><!-- End Contact Page Nav -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-                        <i class="bi bi-menu-button-wide"></i><span>Login</span><i class="bi bi-chevron-down ms-auto"></i>
-                    </a>
-                    <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">                
-                        <li class="nav-item" >
-                            <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                                <li class="nav-item" >
-                                    <a href="CustLogin.jsp">
-                                        <i class="bi bi-circle"></i><span>Customer Login</span>
-                                        <a href="StaffLogin.jsp">
-                                            <i class="bi bi-circle"></i><span>Staff Login</span>
-                                        </a>
-                                </li>
-                                <li>
-                                    <a href="CustRegister.jsp">
-                                        <i class="bi bi-circle"></i><span>Sign Up</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                    </ul>
-                </li><!-- End Order Nav -->
-
-
-
-
-=======
                 <li class="nav-heading">Pages</li>
                 
                 <li class="nav-item">
@@ -140,8 +103,14 @@
           </li>
         </ul>
       </li><!-- End Device Nav -->
-                
->>>>>>> parent of 8a640cd (Merge branch 'main' of https://github.com/haiqalhakimiiii/LASS)
+      
+      
+                <li class="nav-item">
+                    <a class="nav-link " href="Contact.jsp">
+                        <i class="bi bi-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                </li><!-- End Contact Page Nav -->
         </aside><!-- End Sidebar-->
     </tbody>
 </table>

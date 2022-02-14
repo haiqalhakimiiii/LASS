@@ -27,6 +27,17 @@
         Statement statement = null;
         ResultSet resultSet = null;
 %>
+<%
+    if (session != null) {
+        if (session.getAttribute("custPhone") != null) {
+            String name = (String) session.getAttribute("custPhone");
+            
+            out.print("Hello, " + name + ".  Welcome!");
+        } else {
+            response.sendRedirect("CustLogin.jsp");
+        }
+    }
+%>
 
 <!DOCTYPE html>
 <html lang="en">
