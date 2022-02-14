@@ -29,9 +29,9 @@ public class orderDao {
             conn = DBConnection.createConnection();
             
             PreparedStatement pstmt = conn.prepareStatement("INSERT INTO REPAIR_JOB" +
-                                                            "(DATESENDDEVICE,TRACKINGNUM,PROBLEM,STATUSID,SERIALNUM,CUSTID,STATUSDATE,PAYMENTID)" +
+                                                            "(DATESENDDEVICE,TRACKINGNUM,PROBLEM,STATUSID,SERIALNUM,CUSTID,STAFFID,STATUSDATE,PAYMENTID)" +
                                                             "VALUES" +
-                                                            "(?,?,?,?,?,?,CURRENT_DATE()," +
+                                                            "(?,?,?,?,?,?,1,CURRENT_DATE()," +
                                                             "		(SELECT AUTO_INCREMENT " +
                                                             "		FROM information_schema.TABLES" +
                                                             "		WHERE TABLE_SCHEMA = 'lass'" +
