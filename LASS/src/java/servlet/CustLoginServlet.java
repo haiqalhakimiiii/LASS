@@ -44,7 +44,7 @@ public class CustLoginServlet extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
         response.setContentType("text/html");
-          PrintWriter out=response.getWriter();  
+        PrintWriter out = response.getWriter();
 
         String custPhone = request.getParameter("custPhone");
         String custPassword = request.getParameter("custPassword");
@@ -56,17 +56,23 @@ public class CustLoginServlet extends HttpServlet {
         custbean.setCustPassword(custPassword);
 
         String userValidate = custloginDao.CustLogin(custbean);
-    
-            if (userValidate.equalsIgnoreCase("SUCCESS")) {
-                request.setAttribute("custPhone", custPhone);
-                HttpSession session = request.getSession();
-                session.setAttribute("custPhone", custPhone);
-                request.getRequestDispatcher("dashboardCustomer.jsp").forward(request, response);
-            } else {
-                request.setAttribute("errMessage", userValidate);
-                 out.print("Sorry, username or password error!");  
-                request.getRequestDispatcher("CustLogin.jsp").forward(request, response);
-            }
+
+        if (userValidate.equalsIgnoreCase("SUCCESS")) {
+            request.setAttribute("custPhone", custPhone);
+            HttpSession session = request.getSession();
+            session.setAttribute("custPhone", custPhone);
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Login Succesfully');");
+            out.println("location='dashboardCustomer.jsp';");
+            out.println("</script>");
+          
+        } else {
+            request.setAttribute("errMessage", userValidate);
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Login Unsuccesfully,Phone Number or password incorrec');");
+            out.println("location='CustLogin.jsp';");
+            out.println("</script>");
+        }
     }
 
     /**
