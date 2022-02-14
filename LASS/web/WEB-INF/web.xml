@@ -17,6 +17,10 @@
         <servlet-class>servlet.updatePaymentServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>addOrderServlet</servlet-name>
+        <servlet-class>servlet.addOrderServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>paymentServlet</servlet-name>
         <servlet-class>servlet.paymentServlet</servlet-class>
     </servlet>
@@ -47,6 +51,10 @@
     <servlet>
         <servlet-name>StaffLogoutServlet</servlet-name>
         <servlet-class>servlet.StaffLogoutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>addOrderServlets</servlet-name>
+        <servlet-class>servlet.addOrderServlets</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>orderServlet</servlet-name>
@@ -95,6 +103,10 @@
     <servlet-mapping>
         <servlet-name>StaffLogoutServlet</servlet-name>
         <url-pattern>/StaffLogoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addOrderServlets</servlet-name>
+        <url-pattern>/addOrderServlets</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

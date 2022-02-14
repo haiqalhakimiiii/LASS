@@ -69,14 +69,15 @@
                         String sql = "SELECT * FROM CUSTOMER WHERE CUSTPHONE LIKE '%"+custPhone+"%'";
                         resultSet = statement.executeQuery(sql);
                         int i=0;
-                        
-                        while(resultSet.next()){
+                        resultSet.next();
+                        String custID = resultSet.getString("custID");
+                        //while(resultSet.next()){
                     %>
-                    <p><%=custPhone%></p>
-                    <p><%=resultSet.getString("custName")%></p>
+                    <p><%=custID%></p>
+                    
                     <%
                         i++;
-                        }
+                        
                         connection.close();
                         } catch (Exception e) {
                         e.printStackTrace();
