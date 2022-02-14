@@ -64,87 +64,9 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
-
-    <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
-        <span class="d-none d-lg-block">Man Laptop</span>
-      </a>
-      <i class="bi bi-list toggle-sidebar-btn"></i>
-    </div><!-- End Logo -->
-    
-    <nav class="header-nav ms-auto">
-          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <span class="d-none d-md-block dropdown-toggle ps-2">Customer Name</span>
-
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-            
-            <li>
-              <a class="dropdown-header d-flex align-items-center" href="#">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
-              </a>
-            </li>
-
-          </ul><!-- End Profile Dropdown Items -->
-        </li><!-- End Profile Nav -->
-
-      </ul>
-    </nav><!-- End Icons Navigation -->
-
-
+        <jsp:include page="CustNavbar.jsp" />
   </header><!-- End Header -->
-
-  <!-- ======= Sidebar ======= -->
-  <aside id="sidebar" class="sidebar">
-
-    <ul class="sidebar-nav" id="sidebar-nav">
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="dashboardCustomer.jsp">
-          <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#orders-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Orders</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="orders-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="addOrder-1.jsp">
-              <i class="bi bi-circle"></i><span>Add Order</span>
-            </a>
-          </li>
-          <li>
-            <a href="viewOrderCust.jsp">
-              <i class="bi bi-circle"></i><span>View Order</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Order Nav -->
-      
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#device-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-display"></i><span>Devices</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="device-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="registerDeviceForm.jsp">
-              <i class="bi bi-circle"></i><span>Register Device</span>
-            </a>
-          </li>
-          <li>
-            <a href="viewDevice.jsp">
-              <i class="bi bi-circle"></i><span>View Device</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Device Nav -->
-      
-  </aside><!-- End Sidebar-->
 
       <main id="main" class="main">
 
