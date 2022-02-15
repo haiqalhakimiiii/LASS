@@ -31,7 +31,7 @@ public class orderDao {
             PreparedStatement pstmt = conn.prepareStatement("INSERT INTO REPAIR_JOB" +
                                                             "(DATESENDDEVICE,TRACKINGNUM,PROBLEM,STATUSID,SERIALNUM,CUSTID,STAFFID,STATUSDATE,PAYMENTID)" +
                                                             "VALUES" +
-                                                            "(?,?,?,?,?,?,1,CURRENT_DATE()," +
+                                                            "(?,?,?,?,?,?,0,CURRENT_DATE()," +
                                                             "		(SELECT AUTO_INCREMENT " +
                                                             "		FROM information_schema.TABLES" +
                                                             "		WHERE TABLE_SCHEMA = 'lass'" +
