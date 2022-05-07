@@ -44,7 +44,7 @@
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <!--<link href="https://fonts.gstatic.com" rel="preconnect">-->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
@@ -65,8 +65,16 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-</head>
+ 
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 
+    <!-- Html2Pdf  -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.1/html2pdf.bundle.min.js"
+        integrity="sha512vDKWohFHe2vkVWXHp3tKvIxxXg0pJxeid5eo+UjdjME3DBFBn2F8yWOE0XmiFcFbXxrEOR1JriWEno5Ckpn15A=="
+        crossorigin="anonymous">
+    </script>
+</head>
 <body>
 
  <header><jsp:include page="StaffNavbar.jsp" /></header>
@@ -100,8 +108,12 @@
                   <button class="nav-link" data-bs-toggle="tab" data-bs-target="#assign-staff">Assign Staff</button>
                 </li>
                 
-                <li class="nav-item">
+                <!--<li class="nav-item">
                   <button class="nav-link" data-bs-toggle="tab" data-bs-target="#update-payment">Update Payment Details</button>
+                </li>-->
+                
+                <li class="nav-item">
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#quotation">Quotation</button>
                 </li>
 
               </ul>
@@ -199,10 +211,10 @@ while(resultSet.next()){
                     <div class="col-lg-9 col-md-8">RM <%=resultSet.getString("p.totalPrice") %></div>
                   </div>
                   
-                  <div class="row">
+                  <!--<div class="row">
                     <div class="col-lg-3 col-md-4 label">Deposit</div>
                     <div class="col-lg-9 col-md-8">RM <%=resultSet.getString("p.deposit") %></div>
-                  </div>
+                  </div>-->
                   
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Date Payment</div>
@@ -213,7 +225,7 @@ while(resultSet.next()){
 
                 <div class="tab-pane fade profile-edit pt-3" id="update-order">
 
-                  <!-- Edit Status -->
+                  <!-- Update Status -->
                   <form action="orderServlet" method="post">
                       <input type="hidden" name="jobID" value="<%=resultSet.getString("r.jobID") %>">
 
@@ -344,6 +356,92 @@ e.printStackTrace();
                   </form><!-- End Edit Order -->
 
                 </div>
+<%
+try{
+connection = DriverManager.getConnection(url, username, password);
+statement=connection.createStatement();
+String sql ="SELECT r.jobID, r.paymentID, p.totalPrice, p.deposit FROM repair_job r JOIN payment p ON r.paymentID = p.paymentID WHERE r.jobID=" + job_id;
+resultSet = statement.executeQuery(sql);
+int i=0;
+while(resultSet.next()){
+%>
+                    <div class="tab-pane fade profile-edit pt-3" id="quotation">
+<div data-ng-app="" data-ng-init="price1=0;price2=0">
+                  <!-- Quotation -->
+                  <form  action="paymentServlet" method="post">
+                      <input type="hidden" name="paymentID" value="<%=resultSet.getString("r.paymentID") %>">
+
+<div id = "form-print">
+    <br>
+                    <div class="row mb-3">
+                  <label for="inputItem1" class="col-sm-2 col-form-label">Item</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name = "item">
+                  </div>
+                </div>
+                      
+                      <div class="row mb-3">
+                  <label for="inputPrice1" class="col-sm-2 col-form-label">Price (RM)</label>
+                  <div class="col-sm-10">
+                    <input type="number" class="form-control"  name = "price" ng-model="price1">
+                  </div>
+                </div>
+    
+     <div class="row mb-3">
+                  <label for="inputItem2" class="col-sm-2 col-form-label">Item</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name = "item">
+                  </div>
+                </div>
+    
+    <div class="row mb-3">
+                  <label for="inputPrice2" class="col-sm-2 col-form-label">Price (RM)</label>
+                  <div class="col-sm-10">
+                    <input type="number" class="form-control"  name = "price" ng-model="price2">
+                  </div>
+                </div>
+                    
+                      
+<%
+i++;
+}
+connection.close();
+} catch (Exception e) {
+e.printStackTrace();
+}
+%>
+
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">Total Price (RM)</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name = "totalPrice" value="{{price1 + price2}}" >
+                  </div>
+                </div>
+</div>
+          
+          
+                    <div class="text-center">
+                        <input type="button" class="btn btn-primary" 
+          onclick="GeneratePdf();" value="Download Quotation">
+                      <button type="submit" class="btn btn-primary" onclick="GeneratePdf();">Update Payment</button>
+                    </div>
+
+                  </form><!-- End Edit Order -->
+                   <script>          
+        // Function to GeneratePdf
+        function GeneratePdf() {
+            var element = document.getElementById('form-print');
+            html2pdf(element);
+        }
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous">
+    </script>
+
+                </div>
+</div>
               </div><!-- End Bordered Tabs -->
 
             </div>

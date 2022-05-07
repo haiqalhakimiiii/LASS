@@ -56,6 +56,14 @@
         <servlet-name>addOrderServlets</servlet-name>
         <servlet-class>servlet.addOrderServlets</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>quotationServlet</servlet-name>
+        <servlet-class>servlet.quotationServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>quoteServlet</servlet-name>
+        <servlet-class>servlet.quoteServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>orderServlet</servlet-name>
         <url-pattern>/orderServlet</url-pattern>
@@ -107,6 +115,10 @@
     <servlet-mapping>
         <servlet-name>addOrderServlets</servlet-name>
         <url-pattern>/addOrderServlets</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>quoteServlet</servlet-name>
+        <url-pattern>/quoteServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
