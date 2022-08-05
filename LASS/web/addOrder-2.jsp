@@ -129,13 +129,13 @@
               <div class="row mb-3">
                 <label for="problem" class="col-sm-2 col-form-label">Problem</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="problem">
+                    <input type="text" class="form-control" name="problem" onkeypress="return checkEntry(event)" onchange="return checkEntry(event)" required>
                 </div>
               </div>
               <div class="row mb-3">
                 <label for="trackingNum" class="col-sm-2 col-form-label">Tracking Number</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="trackingNum">
+                    <input type="text" class="form-control" name="trackingNum" onkeypress="return checkEntry(event)" onchange="return checkEntry(event)" >
                 </div>
               </div>
 
@@ -162,3 +162,10 @@
 </body>
 
 </html>
+<script>
+  function checkEntry(e) {
+    var k;
+    document.all ? k = e.keyCode : k = e.which;
+    return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57));
+    }
+</script>
