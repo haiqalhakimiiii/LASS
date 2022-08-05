@@ -118,7 +118,7 @@
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Model</label>
                   <div class="col-sm-10">
-                      <input type="text" class="form-control" name="model"  placeholder="eg: Nitro 5/Macbook Pro" required>
+                      <input type="text" class="form-control" name="model" onkeypress="return checkEntry(event)" onchange="return checkEntry(event)" placeholder="eg: Nitro 5/Macbook Pro" required>
                   </div>
                 </div>
                 <div class="row mb-3">
