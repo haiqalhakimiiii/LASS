@@ -113,6 +113,10 @@ public class paymentServlet extends HttpServlet {
 
          } catch(Exception ex){
             ex.printStackTrace();
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Wrong input, please re-enter');");
+            out.println("location='viewOrderStaff.jsp';");
+            out.println("</script>");
          } 
          
         

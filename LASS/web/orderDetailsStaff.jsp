@@ -331,14 +331,14 @@ while(resultSet.next()){
                     <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Total Price</label>
                   <div class="col-sm-10">
-                    <input type="number" class="form-control" name = "totalPrice" placeholder="RM <%=resultSet.getString("p.totalPrice") %>" required>
+                    <input type="number" class="form-control" min="0" name = "totalPrice" placeholder="RM <%=resultSet.getString("p.totalPrice") %>" required>
                   </div>
                 </div>
                       
                       <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Deposit</label>
                   <div class="col-sm-10">
-                    <input type="number" class="form-control"  name = "deposit" placeholder = "RM <%=resultSet.getString("p.deposit") %>" required>
+                    <input type="number" class="form-control" min="0" name = "deposit" placeholder = "RM <%=resultSet.getString("p.deposit") %>" required>
                   </div>
                 </div>
 <%
@@ -383,7 +383,7 @@ while(resultSet.next()){
                       <div class="row mb-3">
                   <label for="inputPrice1" class="col-sm-2 col-form-label">Price (RM)</label>
                   <div class="col-sm-10">
-                    <input type="number" class="form-control"  name = "price" ng-model="price1">
+                      <input type="number" class="form-control" min="0"  name = "price" ng-model="price1">
                   </div>
                 </div>
     
@@ -397,7 +397,7 @@ while(resultSet.next()){
     <div class="row mb-3">
                   <label for="inputPrice2" class="col-sm-2 col-form-label">Price (RM)</label>
                   <div class="col-sm-10">
-                    <input type="number" class="form-control"  name = "price" ng-model="price2">
+                      <input type="number" class="form-control" min="0"  name = "price" ng-model="price2">
                   </div>
                 </div>
                     
