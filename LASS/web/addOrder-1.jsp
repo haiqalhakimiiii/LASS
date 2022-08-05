@@ -120,12 +120,12 @@
                     </select>
                   </div>
                   <br><br><br><br>
-                  <input type="submit" class="btn btn-primary" value="Go">
                 </div>
+                    <input style="width: 20vw" type="submit" class="btn btn-primary" value="Go">
               </form><!-- Select Device Form -->
               <br><br>
               <h5>Or Register New Device Here</h5>
-              <a href="registerDeviceForm.jsp"><button type="button" class="btn btn-secondary">Register New Device</button></a>
+              <a href="registerDeviceForm.jsp"><button  type="button" class="btn btn-warning">Register New Device</button></a>
             </div>
         </div>
       </div>
