@@ -104,7 +104,11 @@ public class payment2Servlet extends HttpServlet {
             pstmt.setFloat(2, Float.parseFloat(deposit));
             pstmt.setInt(3, Integer.parseInt(paymentID));
             pstmt.executeUpdate();
-            request.getRequestDispatcher("viewOrderStaff.jsp").forward(request, response);
+            //request.getRequestDispatcher("viewOrderStaff.jsp").forward(request, response);
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Payment has successfully updated in the system');");
+            out.println("location='viewOrderStaff.jsp';");
+            out.println("</script>");
 
          } catch(Exception ex){
             ex.printStackTrace();

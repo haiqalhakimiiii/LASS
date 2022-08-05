@@ -376,7 +376,7 @@ while(resultSet.next()){
                     <div class="row mb-3">
                   <label for="inputItem1" class="col-sm-2 col-form-label">Item</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name = "item">
+                    <input type="text" class="form-control" name = "item" onkeypress="return checkEntry(event)" onchange="return checkEntry(event)">
                   </div>
                 </div>
                       
@@ -390,7 +390,7 @@ while(resultSet.next()){
      <div class="row mb-3">
                   <label for="inputItem2" class="col-sm-2 col-form-label">Item</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name = "item">
+                    <input type="text" class="form-control" name = "item" onkeypress="return checkEntry(event)" onchange="return checkEntry(event)">
                   </div>
                 </div>
     
@@ -414,7 +414,8 @@ e.printStackTrace();
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Total Price (RM)</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name = "totalPrice" value="{{price1 + price2}}" >
+                    <input type="text" class="form-control" name = "totalPrice" value="{{price1 + price2}}" hidden>
+                    <input type="text" class="form-control" value="{{price1 + price2}}" disabled>
                   </div>
                 </div>
 </div>
