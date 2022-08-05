@@ -64,6 +64,10 @@
         <servlet-name>quoteServlet</servlet-name>
         <servlet-class>servlet.quoteServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>payment2Servlet</servlet-name>
+        <servlet-class>servlet.payment2Servlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>orderServlet</servlet-name>
         <url-pattern>/orderServlet</url-pattern>
@@ -119,6 +123,10 @@
     <servlet-mapping>
         <servlet-name>quoteServlet</servlet-name>
         <url-pattern>/quoteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>payment2Servlet</servlet-name>
+        <url-pattern>/payment2Servlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

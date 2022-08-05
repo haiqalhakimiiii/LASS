@@ -108,9 +108,9 @@
                   <button class="nav-link" data-bs-toggle="tab" data-bs-target="#assign-staff">Assign Staff</button>
                 </li>
                 
-                <!--<li class="nav-item">
+                <li class="nav-item">
                   <button class="nav-link" data-bs-toggle="tab" data-bs-target="#update-payment">Update Payment Details</button>
-                </li>-->
+                </li>
                 
                 <li class="nav-item">
                   <button class="nav-link" data-bs-toggle="tab" data-bs-target="#quotation">Quotation</button>
@@ -324,21 +324,21 @@ while(resultSet.next()){
                     <div class="tab-pane fade profile-edit pt-3" id="update-payment">
 
                   <!-- Edit Status -->
-                  <form action="paymentServlet" method="post">
+                  <form action="payment2Servlet" method="post">
                       <input type="hidden" name="paymentID" value="<%=resultSet.getString("r.paymentID") %>">
 
 
                     <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Total Price</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name = "totalPrice" placeholder="RM <%=resultSet.getString("p.totalPrice") %>">
+                    <input type="number" class="form-control" name = "totalPrice" placeholder="RM <%=resultSet.getString("p.totalPrice") %>" required>
                   </div>
                 </div>
                       
                       <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Deposit</label>
                   <div class="col-sm-10">
-                    <input type="number" class="form-control"  name = "deposit" placeholder = "RM <%=resultSet.getString("p.deposit") %>">
+                    <input type="number" class="form-control"  name = "deposit" placeholder = "RM <%=resultSet.getString("p.deposit") %>" required>
                   </div>
                 </div>
 <%
