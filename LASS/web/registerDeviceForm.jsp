@@ -106,19 +106,19 @@
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Serial Number</label>
                   <div class="col-sm-10">
-                      <input type="text" class="form-control" name="serialNum" placeholder="eg: MY12313JNAD" onkeypress="return checkEntry(event)" onchange="return checkEntry(event)">
+                      <input type="text" class="form-control" name="serialNum" placeholder="eg: MY12313JNAD" onkeypress="return checkEntry(event)" onchange="return checkEntry(event)" required>
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Brand</label>
                   <div class="col-sm-10">
-                      <input type="text" class="form-control" name="brand" onkeypress="return checkEntry(event)" onchange="return checkEntry(event)" placeholder="Acer/Asus/Apple" >
+                      <input type="text" class="form-control" name="brand" onkeypress="return checkEntry(event)" onchange="return checkEntry(event)" placeholder="Acer/Asus/Apple" required>
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Model</label>
                   <div class="col-sm-10">
-                      <input type="text" class="form-control" name="model"  placeholder="eg: Nitro 5/Macbook Pro">
+                      <input type="text" class="form-control" name="model"  placeholder="eg: Nitro 5/Macbook Pro" required>
                   </div>
                 </div>
                 <div class="row mb-3">
