@@ -69,7 +69,7 @@ public class CustLoginServlet extends HttpServlet {
         } else {
             request.setAttribute("errMessage", userValidate);
             out.println("<script type=\"text/javascript\">");
-            out.println("alert('Login Unsuccesfully,Phone Number or password incorrec');");
+            out.println("alert('Login Unsuccesfully,Phone Number or password incorrect');");
             out.println("location='CustLogin.jsp';");
             out.println("</script>");
         }

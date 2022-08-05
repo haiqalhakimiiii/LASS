@@ -63,7 +63,11 @@ public class registerDeviceServlet extends HttpServlet {
         }
         else{
             request.setAttribute("errMsg", register);
-            request.getRequestDispatcher("registerDeviceForm.jsp").forward(request, response);
+            //request.getRequestDispatcher("registerDeviceForm.jsp").forward(request, response);
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Serial number already existed, please use another serial number or contact admin');");
+            out.println("location='registerDeviceForm.jsp';");
+            out.println("</script>");
             }
             
     }
