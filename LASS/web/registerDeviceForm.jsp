@@ -106,25 +106,34 @@
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Serial Number</label>
                   <div class="col-sm-10">
-                      <input type="text" class="form-control" name="serialNum">
+                      <input type="text" class="form-control" name="serialNum" placeholder="eg: MY12313JNAD ">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Brand</label>
                   <div class="col-sm-10">
-                      <input type="text" class="form-control" name="brand">
+                      <input type="text" class="form-control" name="brand" placeholder="Acer/Asus/Apple">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Model</label>
                   <div class="col-sm-10">
-                      <input type="text" class="form-control" name="model">
+                      <input type="text" class="form-control" name="model" placeholder="eg: Nitro 5/Macbook Pro">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Color</label>
                   <div class="col-sm-10">
-                      <input type="text" class="form-control" name="color">
+                      <!--<input type="text" class="form-control" name="color">-->
+                      <select name="color" class="form-select">
+                          <option value="Black">Black</option>
+                          <option value="White">White</option>
+                          <option value="Red">Red</option>
+                          <option value="Green">Green</option>
+                          <option value="Blue">Blue</option>
+                          <option value="Gray">Gray</option>
+                          <option value="Black">Other</option>
+                      </select>
                   </div>
                 </div>
                 <div class="row mb-3">
