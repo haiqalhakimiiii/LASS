@@ -251,7 +251,7 @@ while(resultSet.next()){
                       <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Tracking Number</label>
                   <div class="col-sm-10">
-                    <input type="number" class="form-control" name = "trackingNum" placeholder="<%=resultSet.getString("r.trackingNum") %>">
+                    <input type="text" class="form-control"  name = "trackingNum" onkeypress="return checkEntry(event)" onchange="return checkEntry(event)" placeholder="<%=resultSet.getString("r.trackingNum") %>">
                   </div>
                 </div>
 
@@ -456,3 +456,10 @@ e.printStackTrace();
 </body>
 
 </html>
+<script>
+  function checkEntry(e) {
+    var k;
+    document.all ? k = e.keyCode : k = e.which;
+    return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57));
+    }
+</script>
