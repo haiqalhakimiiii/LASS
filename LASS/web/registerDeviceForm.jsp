@@ -106,19 +106,19 @@
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Serial Number</label>
                   <div class="col-sm-10">
-                      <input type="text" class="form-control" name="serialNum" placeholder="eg: MY12313JNAD ">
+                      <input type="text" class="form-control" name="serialNum" placeholder="eg: MY12313JNAD" onkeypress="return checkEntry(event)" onchange="return checkEntry(event)">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Brand</label>
                   <div class="col-sm-10">
-                      <input type="text" class="form-control" name="brand" placeholder="Acer/Asus/Apple">
+                      <input type="text" class="form-control" name="brand" onkeypress="return checkEntry(event)" onchange="return checkEntry(event)" placeholder="Acer/Asus/Apple" >
                   </div>
                 </div>
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Model</label>
                   <div class="col-sm-10">
-                      <input type="text" class="form-control" name="model" placeholder="eg: Nitro 5/Macbook Pro">
+                      <input type="text" class="form-control" name="model"  placeholder="eg: Nitro 5/Macbook Pro">
                   </div>
                 </div>
                 <div class="row mb-3">
@@ -188,3 +188,10 @@
 </body>
 
 </html>
+<script>
+  function checkEntry(e) {
+    var k;
+    document.all ? k = e.keyCode : k = e.which;
+    return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57));
+    }
+</script>
