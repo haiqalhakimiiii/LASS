@@ -3,6 +3,8 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%
     
     String job_id = request.getParameter("job_id");
@@ -75,6 +77,16 @@
         crossorigin="anonymous">
     </script>
 </head>
+<?php
+       date_default_timezone_set("Asia/Kolkata");
+?>
+
+<% 
+Date today=new Date();
+SimpleDateFormat DATE_FORMAT=new SimpleDateFormat("dd-MM-yyyy");
+String day =DATE_FORMAT.format(today);
+
+%>
 <body>
 
  <header><jsp:include page="StaffNavbar.jsp" /></header>
@@ -232,15 +244,14 @@ while(resultSet.next()){
                     <div class="row mb-3">
                   <label for="inputDate" class="col-sm-2 col-form-label">Status Date</label>
                   <div class="col-sm-10">
-                    <input type="date" name = "statusDate" class="form-control">
+                    <input type="date" id="datePickerId" value= "<= ddMMyyyy?oday >" name = "statusDate" class="form-control" required>
                   </div>
                 </div>
 
                     <div class="row mb-3">
                   <label class="col-sm-2 col-form-label">Status</label>
                   <div class="col-sm-10">
-                    <select class="form-select" aria-label="Default select example" name="statusID">
-                      <option selected>Select Status</option>
+                      <select class="form-select" aria-label="Default select example" name="statusID" required >
                       <option value="1">Troubleshooting</option>
                       <option value="2">Repairing</option>
                       <option value="3">Completed</option>
@@ -376,7 +387,7 @@ while(resultSet.next()){
                     <div class="row mb-3">
                   <label for="inputItem1" class="col-sm-2 col-form-label">Item</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name = "item" onkeypress="return checkEntry(event)" onchange="return checkEntry(event)">
+                      <input type="text" class="form-control" name = "item" onkeypress="return checkEntry(event)" onchange="return checkEntry(event)" required>
                   </div>
                 </div>
                       
@@ -390,7 +401,7 @@ while(resultSet.next()){
      <div class="row mb-3">
                   <label for="inputItem2" class="col-sm-2 col-form-label">Item</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name = "item" onkeypress="return checkEntry(event)" onchange="return checkEntry(event)">
+                    <input type="text" class="form-control" name = "item" onkeypress="return checkEntry(event)" onchange="return checkEntry(event)" required >
                   </div>
                 </div>
     
@@ -463,4 +474,5 @@ e.printStackTrace();
     document.all ? k = e.keyCode : k = e.which;
     return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57));
     }
+    datePickerId.min = new Date().toISOString().split("T")[0];
 </script>

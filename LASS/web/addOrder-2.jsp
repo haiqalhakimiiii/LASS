@@ -123,7 +123,7 @@
               <div class="row mb-3">
                 <label for="dateSendDevice" class="col-sm-2 col-form-label">Date Send Device</label>
                 <div class="col-sm-10">
-                    <input type="date" class="form-control" name="dateSendDevice">
+                    <input type="date" class="form-control" name="dateSendDevice" required>
                 </div>
               </div>
               <div class="row mb-3">
@@ -133,12 +133,14 @@
                 </div>
               </div>
               <div class="row mb-3">
-                <label for="trackingNum" class="col-sm-2 col-form-label">Tracking Number</label>
+                  <label for="trackingNum" class="col-sm-2 col-form-label">Tracking Number<br><i>(*Optional)</i></label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="trackingNum" onkeypress="return checkEntry(event)" onchange="return checkEntry(event)" >
+                    <input type="number"  ondrop="return false;"onpaste="return false;" min="1000"class="form-control" name="trackingNum" onkeypress="return checkEntry(event)" onchange="return checkEntry(event)" >
                 </div>
+                  
               </div>
-
+            
+              
               <div class="row mb-3">
                 <label class="col-sm-2 col-form-label"></label>
                 <div class="col-sm-10">
