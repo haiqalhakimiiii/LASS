@@ -29,8 +29,7 @@
 
     <head>
        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <title>Device</title>
-    
+        <title>Device</title>   
     </head>
 
     <body>
@@ -55,6 +54,7 @@
                                 <table class="table datatable">
                                     <thead>
                                         <tr>
+                                            <th scope="col">No.</th>
                                             <th scope="col">Serial Number</th>
                                             <th scope="col">Brand</th>
                                             <th scope="col">Model</th>
@@ -85,6 +85,7 @@
                                                 while (resultSet.next()) {
                                         %>
                                         <tr>
+                                            <td><%=(i+1)%></td>
                                             <th scope="row"><%=resultSet.getString("serialNum")%></th>
                                             <td><%=resultSet.getString("brand")%></td>
                                             <td><%=resultSet.getString("model")%></td>
@@ -104,7 +105,7 @@
                                     </tbody>
                                 </table>
                                 <!-- End Table with stripped rows -->
-
+<button onclick="history.back()" class="btn btn-info">Back</button>
                             </div>
                         </div>
 

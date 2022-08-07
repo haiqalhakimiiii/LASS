@@ -56,6 +56,7 @@
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10">
+                                    <button onclick="history.back()" class="btn btn-info">Back</button>
                                     <button type="submit" class="btn btn-primary">Register</button>
                                 </div>
                             </div>

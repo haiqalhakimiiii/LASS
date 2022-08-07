@@ -1,8 +1,11 @@
 
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.text.DateFormat"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
+<%@page import="java.util.*"%>
 <%
     
     String job_id = request.getParameter("job_id");
@@ -26,6 +29,11 @@
         Connection connection = null;
         Statement statement = null;
         ResultSet resultSet = null;
+%>
+
+<%
+DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+String date = formatter.format(new java.util.Date());
 %>
 
 <!DOCTYPE html>
@@ -232,15 +240,15 @@ while(resultSet.next()){
                     <div class="row mb-3">
                   <label for="inputDate" class="col-sm-2 col-form-label">Status Date</label>
                   <div class="col-sm-10">
-                    <input type="date" name = "statusDate" class="form-control">
+                    <input value="<%= date %>" name = "statusDate" class="form-control" readonly>
                   </div>
                 </div>
 
                     <div class="row mb-3">
                   <label class="col-sm-2 col-form-label">Status</label>
                   <div class="col-sm-10">
-                    <select class="form-select" aria-label="Default select example" name="statusID">
-                      <option selected>Select Status</option>
+                    <select class="form-select" aria-label="Default select example" name="statusID" required>
+                      <option value="">Select Status</option>
                       <option value="1">Troubleshooting</option>
                       <option value="2">Repairing</option>
                       <option value="3">Completed</option>
@@ -423,8 +431,7 @@ e.printStackTrace();
           
                     <div class="text-center">
                         <input type="button" class="btn btn-primary" 
-          onclick="GeneratePdf();" value="Download Quotation">
-                      <button type="submit" class="btn btn-primary" onclick="GeneratePdf();">Update Payment</button>
+          onclick="GeneratePdf();" value="Download">
                     </div>
 
                   </form><!-- End Edit Order -->
@@ -452,7 +459,7 @@ e.printStackTrace();
       </div>
     </section>
 
-
+<button onclick="history.back()" class="btn btn-info">Back</button>
 
 </body>
 

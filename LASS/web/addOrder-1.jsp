@@ -121,7 +121,7 @@
                   </div>
                   <br><br><br><br>
                 </div>
-                    <input style="width: 20vw" type="submit" class="btn btn-primary" value="Go">
+                    <input style="width: 10vw" type="submit" class="btn btn-success" value="Go">
               </form><!-- Select Device Form -->
               <br><br>
               <h5>Or Register New Device Here</h5>

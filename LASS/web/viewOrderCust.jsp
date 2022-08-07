@@ -51,7 +51,6 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
-
                                 <table class="table datatable">
                                     <thead>
                                         <tr>
@@ -60,7 +59,7 @@
                                             <th scope="col">Date Send Device</th>
                                             <th scope="col">Status Date</th>
                                             <th scope="col">Status</th>
-                                            <th scope="col">Payment ID</th>
+                                            <!--<th scope="col">Payment ID</th>-->
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
@@ -90,7 +89,7 @@
                                             <td><%=resultSet.getString("r.dateSendDevice")%></td>
                                             <td><%=resultSet.getString("r.statusDate")%></td>
                                             <td><%=resultSet.getString("s.statusDescription")%></td>
-                                            <td><%=resultSet.getString("r.paymentID")%></td>
+                                            <!--<td><%=resultSet.getString("r.paymentID")%></td>-->
                                             <td><a href="orderDetailsCust.jsp?job_id=<%=resultSet.getString("r.jobID")%>"><button type="button" class="btn btn-primary">Details</button></a></td>
                                         </tr>
 
@@ -106,7 +105,7 @@
                                     </tbody>
                                 </table>
                                 <!-- End Table with stripped rows -->
-
+<button onclick="history.back()" class="btn btn-info">Back</button>
                             </div>
                         </div>
 

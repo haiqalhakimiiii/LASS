@@ -214,7 +214,7 @@
                     </div>
                 </div>
             </section>
-
+<button onclick="history.back()" class="btn btn-info">Back</button>
         </main><!-- End #main -->
 
 

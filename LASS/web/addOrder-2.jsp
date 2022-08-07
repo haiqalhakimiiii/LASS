@@ -142,7 +142,8 @@
               <div class="row mb-3">
                 <label class="col-sm-2 col-form-label"></label>
                 <div class="col-sm-10">
-                  <button type="submit" class="btn btn-primary">Add Order</button>
+                    <button onclick="history.back()" class="btn btn-info">Back</button>
+                  <button type="submit" class="btn btn-success">Add Order</button>
                 </div>
               </div>
 

@@ -136,7 +136,7 @@ e.printStackTrace();
                 </tbody>
               </table>
               <!-- End Table with stripped rows -->
-
+<button onclick="history.back()" class="btn btn-info">Back</button>
             </div>
           </div>
 
