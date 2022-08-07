@@ -8,7 +8,7 @@
   <title>Pages / Register - NiceAdmin Bootstrap Template</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-
+  
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -66,52 +66,45 @@
                     <p class="text-center small">Enter your personal details to create account</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" action="CustRegServlet" method="POST" novalidate>
+                  <form class="row g-3 needs-validation" action="CustRegServlet" method="POST" >
                     <div class="col-12">
                       <label for="yourName" class="form-label">Phone Number</label>
-                      <input type="text" name="custPhone" class="form-control" id="yourName" required>
-                      <div class="invalid-feedback">Please, enter your Phone Number!</div>
+                      <input type="text"  minlength="10" maxlength="11" name="custPhone" class="form-control" id="yourName" onkeypress="return isNumber(event)" required>
                     </div>
 
-                    <form class="row g-3 needs-validation" novalidate>
+                    <form class="row g-3 needs-validation" >
                       <div class="col-12">
                         <label for="yourName" class="form-label">Full Name</label>
                         <input type="text" name="custName" class="form-control" id="yourName" required>
-                        <div class="invalid-feedback">Please, enter your name!</div>
                       </div>
 
-                      <form class="row g-3 needs-validation" novalidate>
+                      <form class="row g-3 needs-validation" >
                         <div class="col-12">
                           <label for="yourName" class="form-label">Username</label>
                           <input type="text" name="custUsername" class="form-control" id="yourName" required>
-                          <div class="invalid-feedback">Please, enter Username!</div>
                         </div>
 
-                        <form class="row g-3 needs-validation" novalidate>
+                        <form class="row g-3 needs-validation" >
                           <div class="col-12">
                             <label for="yourName" class="form-label">Password</label>
-                            <input type="password" name="custPassword" class="form-control" id="yourName" required>
-                            <div class="invalid-feedback">Please, enter password!</div>
+                            <input type="password" name="custPassword" class="form-control" id="yourName" onkeypress="return blockSpecialChar(event)" required>
                           </div>
 
-                          <form class="row g-3 needs-validation" novalidate>
+                          <form class="row g-3 needs-validation" >
                             <div class="col-12">
                               <label for="yourName" class="form-label">Address</label>
                               <input type="textarea" name="custAddress" class="form-control" id="yourName" required>
-                              <div class="invalid-feedback">Please, enter your Address!</div>
                             </div>
 
                             <div class="col-12">
                               <label for="yourEmail" class="form-label">Email</label>
                               <input type="email" name="custEmail" class="form-control" id="yourEmail" required>
-                              <div class="invalid-feedback">Please enter a valid Email adddress!</div>
                             </div>
 
-                            <form class="row g-3 needs-validation" novalidate>
+                            <form class="row g-3 needs-validation" >
                               <div class="col-12">
                                 <label for="yourName" class="form-label">Registration Date</label>
                                 <input type="date" name="registerDate" class="form-control" id="yourName" required>
-                                <div class="invalid-feedback">Please, enter Username!</div>
                               </div>
 
                           
@@ -136,9 +129,21 @@
 
     </div>
   </main><!-- End #main -->
-
-
-
+  <script>
+function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
+}
+function blockSpecialChar(e){
+        var k;
+        document.all ? k = e.keyCode : k = e.which;
+        return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57));
+        } 
+</script>
 </body>
 
 </html>

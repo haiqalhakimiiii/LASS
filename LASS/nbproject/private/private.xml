@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Acer/OneDrive/CS266/Part%204/ISP551/Project/LASS/LASS/web/StaffRegister.jsp</file>
             <file>file:/C:/Users/Acer/OneDrive/CS266/Part%204/ISP551/Project/LASS/LASS/web/viewOrderCust.jsp</file>
             <file>file:/C:/Users/Acer/OneDrive/CS266/Part%204/ISP551/Project/LASS/LASS/web/orderDetailsStaff.jsp</file>
@@ -12,6 +13,17 @@
             <file>file:/C:/Users/Acer/OneDrive/CS266/Part%204/ISP551/Project/LASS/LASS/web/addOrder-1.jsp</file>
             <file>file:/C:/Users/Acer/OneDrive/CS266/Part%204/ISP551/Project/LASS/LASS/web/viewOrderStaff.jsp</file>
             <file>file:/C:/Users/Acer/OneDrive/CS266/Part%204/ISP551/Project/LASS/LASS/web/addOrder-2.jsp</file>
+=======
+            <file>file:/C:/Users/USER/Documents/GitHub/LASS/LASS/web/orderDetailsCust.jsp</file>
+            <file>file:/C:/Users/USER/Documents/GitHub/LASS/LASS/web/orderDetailsStaff.jsp</file>
+            <file>file:/C:/Users/USER/Documents/GitHub/LASS/LASS/web/registerDeviceForm.jsp</file>
+            <file>file:/C:/Users/USER/Documents/GitHub/LASS/LASS/web/Login.jsp</file>
+            <file>file:/C:/Users/USER/Documents/GitHub/LASS/LASS/src/java/servlet/CustRegServlet.java</file>
+            <file>file:/C:/Users/USER/Documents/GitHub/LASS/LASS/web/addOrder-2.jsp</file>
+            <file>file:/C:/Users/USER/Documents/GitHub/LASS/LASS/web/CustRegister.jsp</file>
+            <file>file:/C:/Users/USER/Documents/GitHub/LASS/LASS/web/addOrder-1.jsp</file>
+            <file>file:/C:/Users/USER/Documents/GitHub/LASS/LASS/src/java/servlet/orderServlet.java</file>
+>>>>>>> fa562f1fc82270515e1f00dff330a387f6a5bc06
         </group>
     </open-files>
 </project-private>

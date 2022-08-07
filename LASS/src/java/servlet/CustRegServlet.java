@@ -79,6 +79,10 @@ public class CustRegServlet extends HttpServlet {
             request.getRequestDispatcher("RegisteredSuc.jsp").forward(request, response);
         } else {
             request.setAttribute("errMsg", register);
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Register unsuccessful');");
+            out.println("location='CustLogin.jsp';");
+            out.println("</script>");
             request.getRequestDispatcher("CustRegister.jsp").forward(request, response);
             
         }
