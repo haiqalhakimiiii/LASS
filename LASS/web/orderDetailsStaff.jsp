@@ -255,23 +255,18 @@ while(resultSet.next()){
                     <div class="row mb-3">
                   <label for="inputDate" class="col-sm-2 col-form-label">Status Date</label>
                   <div class="col-sm-10">
-<<<<<<< HEAD
+
                     <input value="<%= date %>" name = "statusDate" class="form-control" readonly>
-=======
-                    <input type="date" id="datePickerId" value= "<= ddMMyyyy?oday >" name = "statusDate" class="form-control" required>
->>>>>>> fa562f1fc82270515e1f00dff330a387f6a5bc06
+
                   </div>
                 </div>
 
                     <div class="row mb-3">
                   <label class="col-sm-2 col-form-label">Status</label>
                   <div class="col-sm-10">
-<<<<<<< HEAD
+
                     <select class="form-select" aria-label="Default select example" name="statusID" required>
                       <option value="">Select Status</option>
-=======
-                      <select class="form-select" aria-label="Default select example" name="statusID" required >
->>>>>>> fa562f1fc82270515e1f00dff330a387f6a5bc06
                       <option value="1">Troubleshooting</option>
                       <option value="2">Repairing</option>
                       <option value="3">Completed</option>

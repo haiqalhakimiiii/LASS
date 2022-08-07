@@ -70,7 +70,7 @@ pageEncoding="utf-8"%>
                                <form class="row g-3 needs-validation" action="StaffLoginServlet" method="post" id="loginForm" novalidate>
 
                                    <div class="col-12">
-                                       <label for="yourUsername" class="form-label">Staff Usename</label>
+                                       <label for="yourUsername" class="form-label">Staff Username</label>
                                        <div class="input-group has-validation">
                                            <span class="input-group-text" id="inputGroupPrepend">@</span>
                                            <input type="text"name="staffUsername"  required class="form-control" id="yourUsername" required>
